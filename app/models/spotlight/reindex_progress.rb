@@ -2,10 +2,10 @@ module Spotlight
   ##
   # ReindexProgress is a class that models the progress of reindexing a list of resources
   class ReindexProgress
-    attr_reader :exhibit
+    attr_reader :current_log_entry
 
-    def initialize(exhibit)
-      @exhibit = exhibit
+    def initialize(current_log_entry)
+      @current_log_entry = current_log_entry
     end
 
     def recently_in_progress?
@@ -58,10 +58,6 @@ module Spotlight
     end
 
     private
-
-    def current_log_entry
-      exhibit.reindexing_log_entries.where.not(job_status: 'unstarted').first
-    end
 
     def localized_start_time
       return unless started_at

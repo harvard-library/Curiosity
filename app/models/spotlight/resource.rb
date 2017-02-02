@@ -52,7 +52,7 @@ module Spotlight
             document_builder.documents_to_index.each_slice(batch_size) do |batch|
               write_to_index(batch)
               count += batch.length
-              reindexing_log_entry.update(items_reindexed_count: count) if reindexing_log_entry
+              reindexing_log_entry.update(items_reindexed_count: count)
             end
 
             count

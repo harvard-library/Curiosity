@@ -11,6 +11,10 @@ module Spotlight
     default_scope { order('start_time IS NOT NULL, start_time DESC') }
     scope :recent, -> { limit(5) }
 
+    after_save do
+      Spotlight::ExhibitIndexingChannel.broadcast_to(exhibit, ReindexProgress.new(self))
+    end
+
     def duration
       end_time - start_time if end_time
     end
