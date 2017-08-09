@@ -55,13 +55,20 @@ feature 'Feature Pages Adminstration', js: true do
   it 'stays in curation mode if a user has unsaved data' do
     visit spotlight.edit_exhibit_feature_page_path(page1.exhibit, page1)
 
+    # Hack to bypass alert about unsaved changes
+    page.evaluate_script('function observedFormsStatusHasChanged() { return false; }')
+
     fill_in('Title', with: 'Some Fancy Title')
+
     click_link 'Cancel'
     expect(page).not_to have_selector 'a', text: 'Edit'
   end
 
   it 'stays in curation mode if a user has unsaved contenteditable data' do
     visit spotlight.edit_exhibit_feature_page_path(page1.exhibit, page1)
+
+    # Hack to bypass alert about unsaved changes
+    page.evaluate_script('function observedFormsStatusHasChanged() { return false; }')
 
     add_widget 'solr_documents'
     content_editable = find('.st-text-block')
@@ -75,6 +82,10 @@ feature 'Feature Pages Adminstration', js: true do
     visit spotlight.exhibit_dashboard_path(exhibit)
 
     click_link 'Feature pages'
+
+    # Hack to bypass alert about unsaved changes
+    page.evaluate_script('function observedFormsStatusHasChanged() { return false; }')
+
     within("[data-id='#{page1.id}']") do
       within('h3') do
         expect(page).to have_content('FeaturePage1')
