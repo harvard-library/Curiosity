@@ -1,0 +1,7 @@
+<div id="react-root"></div>
+
+<% if Rails.env.production? %>
+  <%= javascript_include_tag "spotlight/webpack_bundle" %>
+<% elsif Rails.env.development? %>
+	<script src="//localhost:8080/webpack_bundle.js"></script>
+<% end %>
