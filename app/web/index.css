@@ -1,0 +1,237 @@
+/******************************************************************************
+
+
+                  _
+     ___ _ _ _ __| |_  ___  _  _ ___
+    / _ \ '_| '_ \ ' \/ -_)| || (_-<
+    \___/_| | .__/_||_\___(_)_,_/__/
+            |_|
+
+        the archive, reimagined.
+
+
+
+ |  Style Variables for orphe.us application
+ |
+ |   1. Colors
+ |   2. Typography
+ |   3. Mixins
+
+
+******************************************************************************/
+/******************************************************************************
+
+1. Colors
+
+******************************************************************************/
+/******************************************************************************
+
+1.1 Base Colors
+
+******************************************************************************/
+/******************************************************************************
+
+1.2 Brand Colors
+
+******************************************************************************/
+/******************************************************************************
+
+1.3 Text Colors
+
+******************************************************************************/
+/******************************************************************************
+
+2. Typography
+
+Available Fonts:
+
+=================================
+Google Fonts
+=================================
+font-family: 'Gentium Basic', serif;
+font-family: 'Merriweather', serif;
+
+=================================
+Fonts.com
+=================================
+font-family:'Slate W04 Light';
+font-family:'Slate W04 Bk';
+font-family:'Slate W04 Regular';
+font-family:'Slate W04 Medium';
+font-family:'Slate W04 Condensed';
+font-family:'Slate W04 Bold';
+font-family:'Slate W04 Black';
+font-family:'Proxima Nova W08 Light';
+font-family:'Proxima Nova W08 Reg';
+font-family:'Freight Text W03 Light';
+font-family:'Freight Text W03 Black';
+font-family:'Freight Text W03 Book';
+font-family:'Freight Text W03 Bold';
+font-family:'Courier Bold W07 Regular';
+font-family:'Courier W07 Regular';
+font-family:'Futura LT W04 Bold Cond1475886';
+font-family:'Futura LT W04 Book1475802';
+font-family:'Futura LT W04 Medium1475814';
+font-family:'Futura LT W04 Light1475790';
+font-family:'Futura LT W04 Black';
+
+=================================
+Material Design Icons
+=================================
+font-family: "Material Design Icons";
+
+******************************************************************************/
+/******************************************************************************
+
+2.1 Base Fonts
+
+******************************************************************************/
+/******************************************************************************
+
+2.2 Title Fonts
+
+******************************************************************************/
+/******************************************************************************
+
+2.3 Reading Environment Fonts
+
+******************************************************************************/
+/******************************************************************************
+
+2.4 Material Design Icons
+
+******************************************************************************/
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("/fonts/materialdesignicons-webfont.eot?v=1.9.32");
+  src: url("/fonts/materialdesignicons-webfont.eot?#iefix&v=1.9.32") format("embedded-opentype"), url("/fonts/materialdesignicons-webfont.woff2?v=1.9.32") format("woff2"), url("/fonts/materialdesignicons-webfont.woff?v=1.9.32") format("woff"), url("/fonts/materialdesignicons-webfont.ttf?v=1.9.32") format("truetype"), url("/fonts/materialdesignicons-webfont.svg?v=1.9.32#materialdesigniconsregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/******************************************************************************
+
+3. Mixins
+
+ Mixins are based off of the excellent ups-mixin-lib repository by Upstatement
+ @https://github.com/Upstatement/ups-mixin-lib
+
+******************************************************************************/
+html, body, input, p, span, label {
+  font-family: "Gotham";
+  color: #999; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham"; }
+
+body {
+  color: #ffffff;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #212121;
+  text-decoration: none; }
+  a:hover, a:focus {
+    color: #212121;
+    text-decoration: none; }
+
+li {
+  list-style: none; }
+
+/* Remove scroll on the body when react-modal is open */
+.ReactModal__Body--open {
+  overflow: hidden; }
+
+.absolute {
+  position: absolute; }
+
+.bg-light-blue {
+  background-color: #e7f4f8; }
+
+.bg-lighter-blue {
+  background-color: #e8f4f8; }
+
+.border-bottom {
+  border-bottom: 2px solid; }
+
+.border-left {
+  border-left: 2px solid; }
+
+.border-right {
+  border-right: 2px solid; }
+
+.border-top {
+  border-top: 2px solid; }
+
+.border-light-blue {
+  border-color: #3a9fbf; }
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both; }
+
+.float-left {
+  float: left; }
+
+.full-width {
+  width: 100%; }
+
+.hidden {
+  visibility: hidden; }
+
+.inline-block {
+  display: inline-block; }
+
+.p1 {
+  padding: 2px; }
+
+.relative {
+  position: relative; }
+
+.rounded {
+  border-radius: 2px; }
+
+.z0 {
+  z-index: 0; }
+
+.z10 {
+  z-index: 10; }
+
+.z100 {
+  z-index: 100; }
+
+.btn {
+  font-family: "Gotham Book";
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+
+.btn-primary {
+  background-color: #2797d8;
+  color: #fff;
+  padding: 10px 45px;
+  margin: 0 10px;
+  border: 2px solid #2797d8; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 45px;
+  margin: 0 10px;
+  border: 2px solid #fff; }
+
+.btn-primary:hover {
+  background-color: #60b0de;
+  border: 2px solid #60b0de; }
+
+.btn-secondary:hover {
+  background-color: #fff;
+  color: #9f9f9f;
+  border: 2px solid #fff; }
+
+section {
+  padding: 90px 0; }
+  section img {
+    margin: 0 auto; }

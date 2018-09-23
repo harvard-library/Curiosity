@@ -1,0 +1,38 @@
+@import '../../../../variables.scss';
+
+.articleTitleOuter {
+	padding: 20px 0 0 0;
+	text-align: left;
+}
+
+.articleTitle {
+	color: $text-primary;
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+.articleMetaField.aboutMetaField {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.articleTitleLink {
+	font-family: $font-reading;
+	color: $primary;
+	font-size: 22px;
+	font-weight: 100;
+	font-style: italic;
+	display: inline-block;
+	vertical-align: baseline;
+	padding: 0px 10px 0 20px;
+	@include transition(100ms all ease-in-out);
+
+	&:hover {
+		color: $primary-dark;
+	}
+}
+
+.articleTitleLinkRemove {
+	border: none;
+	outline: none;
+}

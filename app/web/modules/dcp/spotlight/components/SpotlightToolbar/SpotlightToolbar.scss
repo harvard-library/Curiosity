@@ -1,0 +1,103 @@
+@import '../../../../../variables.scss';
+/*
+Collection toolbar
+*/
+.hl__collectionDetailsSticky .sticky-inner-wrapper {
+  z-index: 1;
+  margin: 0 7%;
+}
+
+.sticky-outer-wrapper.hl__collectionDetailsSticky {
+  margin-top: -90px;
+  @media #{$breakpoint-1} {
+    margin-top: -60px;
+
+    .hl__collectionDetails__jumpLinks {
+      padding-top: 3%;
+
+      .hl__collectionDetails__jumpLink {
+        display: flex;
+        padding: 7px 0;
+
+        button {
+          display: flex;
+          background: none;
+          border: none;
+          font-size: 14px;
+          color: $light;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.sticky-outer-wrapper.hl__collectionDetailsSticky.toolbarOpen {
+  margin-top: -180px;
+
+  .hl__collectionDetails__jumpLinks {
+    height: 180px;
+    padding-bottom: 4%;
+  }
+}
+
+.sticky-outer-wrapper.active .sticky-inner-wrapper {
+  margin: 0;
+
+  .hl__collectionDetails__jumpLinks {
+    height: 60px;
+  }
+}
+
+.hl__collectionDetails__jumpLinks {
+  height: 90px;
+  width: 100%;
+  background-image: linear-gradient(247deg, #52757e, #335c67);
+  max-width: 2200px;
+  display: flex;
+  @media #{$breakpoint-1} {
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .hl__collectionDetails__jumpLinkItems {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    padding: 0;
+  }
+
+  .hl__collectionDetails__jumpLink {
+    padding: 5px 30px;
+
+    .hl__linkTag {
+      padding: 4px;
+      color: $light;
+      font-family: "TruenoSBd";
+      font-weight: normal;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      &:hover {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.65);
+        @media #{$breakpoint-1} {
+          border-bottom: none;
+        }
+      }
+
+      img {
+        vertical-align: sub;
+      }
+    }
+  }
+}
+
+.sticky-outer-wrapper.hl__collectionDetailsSticky.toolbarOpen.active {
+  .hl__collectionDetails__jumpLinks {
+    height: 100%;
+  }
+}

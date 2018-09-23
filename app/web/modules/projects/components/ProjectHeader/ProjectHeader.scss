@@ -1,0 +1,23 @@
+@import '../../../../variables.scss';
+
+
+.searchIcon {
+	&:before {
+		font-size: 20px;
+	}
+}
+
+.nav li a.searchLink {
+	padding: 14px 20px;
+}
+
+
+.projectHome {
+	.headroom--unfixed {
+		.nav-header {
+			.site-title {
+				display: none;
+			}
+		}
+	}
+}

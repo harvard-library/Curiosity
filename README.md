@@ -75,6 +75,24 @@ Our `$ rake ci` and `$ rake spotlight:server` tasks utilize Solr and the testing
 
 See more detailed instructions for development environment setup at ["Contributing to Spotlight"](https://github.com/projectblacklight/spotlight/wiki/Contributing-to-Spotlight)
 
+## Developing React Assets
+
+### Requirements
+
+1. [Node.js](https://nodejs.org/en/) (10 or greater) and [Yarn](https://yarnpkg.com/en/docs/install) (package manager)
+
+### Setup
+
+1. With the above [requirements](#requirements-1) all dependencies can be installed by running `yarn`.
+
+React assets are saved in `./app/web`, outside of the usual `./app/assets/javascripts` because they require additional build tools that Blacklight will not have enabled until [v7](https://github.com/projectblacklight/blacklight/wiki/Using-Webpacker-to-compile-javascript-assets).
+
+To build the React assets for development, run `yarn start`. By default, the `views/layouts/spotlight/spotlight.html.erb` template will request the JavaScript bundle from http://localhost:8080/webpack_bundle.js.
+
+To build the React assets for production and serve them through the host application, simply run `yarn build`. The resulting bundle will be pulled in through Sprockets when the application is run with the `RAILS_ENV=production` enviroment variable.
+
+Configuration can be found in `webpack.config.js` and `package.json`.
+
 ## Tests
 
 ### Run all the tests:
@@ -93,7 +111,7 @@ Spotlight ships with [`i18n-tasks`](https://github.com/glebm/i18n-tasks) to help
 $ bundle exec i18n-tasks health
 ```
 
-See [developer-facing instructions for enabling translation](https://github.com/projectblacklight/spotlight/wiki/Translations) on the wiki. 
+See [developer-facing instructions for enabling translation](https://github.com/projectblacklight/spotlight/wiki/Translations) on the wiki.
 
 ## Community
 

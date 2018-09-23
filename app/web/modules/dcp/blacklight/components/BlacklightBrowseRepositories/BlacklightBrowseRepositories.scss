@@ -1,0 +1,14 @@
+@import '../../../../../variables.scss';
+
+.hl__blacklightBrowse__pageHeader.browseRepoHeader {
+  justify-content: flex-start;
+  padding-top: 87px;
+  height: 400px;
+}
+
+.hl__blacklightBrowse__title.browseRepoTitle {
+  max-width: 900px;
+  @media #{$breakpoint-1} {
+    font-size: 32px;
+  }
+}

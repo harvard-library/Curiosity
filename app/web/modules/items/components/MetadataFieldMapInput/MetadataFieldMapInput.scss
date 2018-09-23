@@ -1,0 +1,90 @@
+@import '../../../../variables.scss';
+
+.metadataFieldMapInput {
+	width: 100%;
+	padding-right: 15px;
+	position: relative;
+
+	.latitudeAndLongitude {
+		color: $dark;
+		display: flex;
+		align-items: baseline;
+		margin: 15px 0;
+
+		h5 {
+			font-size: 14px;
+		}
+
+		span {
+			padding: 5px 10px;
+		}
+
+	}
+}
+
+.placesAutocompleteInput {
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	left: 10px;
+	display: flex;
+	background: $light;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 15px;
+
+	i {
+		color: $dark;
+		&:before {
+			font-size: 22px;
+		}
+	}
+}
+
+.metadataFieldMapSearch {
+	display: flex;
+
+
+	input[type="text"] {
+		font-size: 20px;
+    margin: 10px 20px 10px 0;
+    display: block;
+    width: 100%;
+		line-height: 1.7em;
+	}
+}
+
+.metadataFieldMapInputTextSubmit {
+	display: inline-block;
+	margin: 10px 0;
+	color: $dark;
+	padding: 10px 25px;
+	background: transparent;
+	border: 2px solid $dark;
+	text-transform: uppercase;
+	font-family: $font-label;
+	cursor: pointer;
+	border-radius: 0;
+	outline: 0;
+	font-size: 12px;
+	@include transition(all 100ms ease-in-out);
+	height: 45px;
+
+	&.disabled {
+		opacity: 0.3;
+	}
+
+	&:hover {
+		background: $primary;
+		border: 2px solid $primary;
+		color: $light;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	i {
+		padding-right: 10px;
+	}
+}

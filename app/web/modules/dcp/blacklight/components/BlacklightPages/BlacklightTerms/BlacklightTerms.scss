@@ -1,0 +1,61 @@
+@import '../../../../../../variables.scss';
+
+.hl__generalPage {
+  min-height: 600px;
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hl__generalPage__title {
+  color: $dark;
+  font-size: 60px;
+  font-family: 'Helvetica';
+  font-weight: normal;
+  text-align: center;
+  padding-top: 88px;
+  @media #{$breakpoint-1} {
+    font-size: 32px;
+  }
+}
+
+.hl__generalPage__textContainer {
+  padding: 86px 0;
+}
+
+.hl__generalPage__introBody {
+  font-family: $font-reading;
+  font-size: 19px;
+  line-height: 32px;
+  font-weight: normal;
+  color: $hl__text-dark;
+  counter-reset: section;
+}
+
+.hl__generalPage__body {
+  position: relative;
+  font-family: $font-reading;
+  font-size: 19px;
+  line-height: 29px;
+  font-weight: normal;
+  color: $hl__dark;
+  padding-left: 60px;
+}
+
+.hl__generalPage__body::before {
+  border: 2px solid #dfdfdf;
+  border-radius: 100%;
+  color: #a51c30;
+  counter-increment: section;
+  content: counter(section);
+  display: inline-block;
+  font-family: "Trueno", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  height: 41px;
+  line-height: 42px;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  width: 41px;
+}

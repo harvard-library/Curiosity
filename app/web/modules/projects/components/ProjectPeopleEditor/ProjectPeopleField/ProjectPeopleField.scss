@@ -1,0 +1,114 @@
+@import '../../../../../variables.scss';
+
+.projectPeopleField {
+	padding: 10px 0;
+}
+
+.projectPeopleRemove {
+	margin: 20px 0;
+	padding: 7px 10px;
+	text-align: center;
+	color: $dark;
+	background: transparent;
+	border: 2px solid $dark;
+	text-transform: uppercase;
+	font-family: $font-label;
+	cursor: pointer;
+	border-radius: 0;
+	outline: 0;
+	@include transition(all 100ms ease-in-out);
+
+	&:hover {
+		background: $primary;
+		border: 2px solid $primary;
+		color: $light;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	i {
+		padding: 2px 0 0 1px;
+		display: block;
+	}
+}
+
+.projectPeopleFieldInput {
+	max-width: none;
+	width: 100%;
+	border-bottom: 1px solid $divider-light-grey;
+
+	.userListItem {
+		padding: 30px 15px;
+
+		a:hover {
+			.userListItemAvatarImage {
+				border: 1px solid $divider;
+			}
+			.userListItemUserName {
+				color: $primary;
+			}
+		}
+
+		.userListItemAvatarImage {
+			width: 30px;
+			height: 30px;
+			border-radius: 100%;
+			display: inline-block;
+			vertical-align: top;
+			border: 1px solid $divider-light-grey;
+			margin-right: 20px;
+			@include transition(100ms all ease-in-out);
+		}
+
+		.userListItemUserName {
+			font-size: 20px;
+			font-family: $font-reading;
+			line-height: 1.3em;
+			display: inline-block;
+			vertical-align: top;
+			padding-top: 1px;
+			@include transition(100ms all ease-in-out);
+		}
+	}
+
+	input, textarea, select {
+		font-size: 20px;
+		margin: 10px 0;
+		display: block;
+		width: 100%;
+	}
+
+	select {
+		font-family: $font-reading;
+		font-weight: 100;
+		margin: 26px 0;
+		color: $dark;
+		border: none;
+		border-bottom: 2px solid $divider-light-grey;
+		padding: 15px;
+		background: $light;
+		border-radius: 0;
+
+		option {
+			background: $light;
+			color: $dark;
+		}
+	}
+
+	textarea {
+		min-height: 120px;
+	}
+
+	.projectPersonStatus {
+		font-size: 20px;
+		font-family: $font-reading;
+		line-height: 1.3em;
+		display: inline-block;
+		vertical-align: top;
+		padding: 24px 5px;
+		text-transform: capitalize;
+		@include transition(100ms all ease-in-out);
+	}
+}

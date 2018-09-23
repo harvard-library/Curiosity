@@ -1,0 +1,55 @@
+@import '../../../../../../variables.scss';
+
+#visit {
+	background: #fafafa;
+	padding: 0;
+	margin: 0;
+}
+
+.projectVisitCol {
+	margin: 0;
+	padding: 0;
+}
+
+.projectVisitInfo {
+	text-align: left;
+	padding: 40px 50px;
+
+		h2 {
+			color: $dark;
+		}
+
+		hr {
+			background: #aaa;
+			max-width: 120px;
+			height: 2px;
+			border: none;
+			outline: none;
+			margin: 30px 0;
+		}
+
+		p {
+			color: $dark;
+			font-family: $font-reading;
+			line-height: 1.7em;
+			padding: 6px 0;
+			margin: 0;
+
+			a {
+				color: $dark;
+				border-bottom: 1px solid $dark;
+				&:hover {
+					border-bottom: 1px solid rgba(0, 0, 0, 0);
+				}
+			}
+		}
+
+}
+
+#home {
+	.projectVisitInfo {
+		p {
+			font-size: 20px;
+		}
+	}
+}

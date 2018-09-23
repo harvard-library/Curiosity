@@ -1,0 +1,171 @@
+@import '../../../../../../../variables.scss';
+
+.hl__blacklightHome__highlights {
+  margin: 85px auto 0;
+
+  .hl__itemMasonryViewMetaContainer {
+    width: 365px;
+    justify-content: space-around;
+  }
+}
+
+.hl__blacklightHome__sectionTitle {
+  display: inline-flex;
+  font-family: $font-title-bold;
+  text-transform: uppercase;
+  font-size: 32px;
+  letter-spacing: 2.4px;
+  color: $hl__dark;
+}
+
+.hl__blacklightHome__moreHighlights,
+.hl__blacklightHome__seeAll {
+  font-family: $font-title-bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: $hl__text-strong-blue;
+  text-transform: uppercase;
+  border: none;
+  padding: 0;
+  vertical-align: super;
+
+  .moreHighlightsIcon {
+    margin-left: 40px;
+    margin-right: 10px;
+  }
+}
+
+.hl__blacklightHome__moreHighlights {
+  @media #{$breakpoint-1} {
+    display: none;
+  }
+}
+
+.hl__blacklightHome__seeAllContainer {
+  height: 20px;
+  padding-bottom: 85px;
+  border-bottom: 1px solid $hl__text-grey;
+}
+
+.hl__blacklightHome__seeAll {
+  float: right;
+}
+
+.hl__blacklightHome__moreHighligthsFeaturedContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40px 0;
+
+  div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media #{$breakpoint-1} {
+      flex-direction: column;
+    }
+  }
+}
+
+.hl__blacklightHome__moreHighlightsFeatured {
+  display: flex;
+  align-items: baseline;
+  width: 32%;
+  overflow: hidden;
+  padding: 10%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-decoration: none;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  @include transition(all 100ms ease-in-out);
+  @media #{$breakpoint-1} {
+    margin-bottom: 30px;
+    padding: 50%;
+    width: 100%;
+  }
+
+  &.moreHighlightsFeaturedActive {
+    .hl__blacklightHome__collectionHighlights__meta {
+      opacity: 1;
+    }
+  }
+
+  &.bough {
+    background-image: url("/images/goldenbough.jpg");
+    @media #{$breakpoint-1} {
+      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
+      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
+      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
+    }
+  }
+
+  &.boughActive {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/goldenbough.jpg");
+  }
+
+  &.eclogues {
+    background-image: url("/images/eclogues.jpg");
+    @media #{$breakpoint-1} {
+      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
+      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
+      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
+    }
+  }
+
+  &.highlightActive {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/eclogues.jpg");
+  }
+
+  &.colosseum {
+    background-image: url("/images/colosseum.jpg");
+  }
+
+  &.colosseumActive {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/colosseum.jpg");
+  }
+}
+
+.hl__blacklightHome__collectionHighlights__meta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  opacity: 0;
+  padding: 8%;
+  @include transition(all 100ms ease-in-out);
+  @media #{$breakpoint-1} {
+    opacity: 1;
+  }
+
+  h3,
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 1.7vw;
+    color: $hl__dark;
+    margin: 0;
+    padding: 10px 0;
+    @media #{$breakpoint-1} {
+      font-size: 26px;
+    }
+  }
+
+  p {
+    font-size: 1.2vw;
+    color: $hl__text-dark;
+    margin: 0;
+    padding: 5px 0;
+    @media #{$breakpoint-1} {
+      font-size: 18px;
+    }
+  }
+}

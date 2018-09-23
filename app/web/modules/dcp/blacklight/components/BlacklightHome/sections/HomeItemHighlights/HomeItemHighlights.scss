@@ -1,0 +1,107 @@
+@import '../../../../../../../variables.scss';
+
+.hl__blacklightHome__itemHighlights {
+  margin: 80px auto 0;
+}
+
+.hl__blacklightHome__itemHighlightsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40px 0;
+  @media #{$breakpoint-1} {
+    flex-direction: column;
+  }
+}
+
+.hl__blacklightHome__itemHighlightsFeatured {
+  position: relative;
+  display: flex;
+  height: 125px;
+  width: 18%;
+  margin: 15px 5px;
+  text-decoration: none;
+  cursor: pointer;
+  @media #{$breakpoint-1} {
+    width: 100%;
+  }
+
+  &:hover {
+    .hl__itemHighlightsMetaContainer {
+      opacity: 1;
+    }
+  }
+
+  .hl__blacklightHome__itemHighlightsFeaturedImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .hl__itemHighlightsMetaContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: left;
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8));
+    opacity: 0;
+    @include transition(all 100ms ease-in-out);
+
+    a {
+      display: block;
+
+      h3 {
+        word-wrap: normal;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.itemSeeAll {
+  border-bottom: none;
+}
+
+.hl__itemHighlightsMetaContainer {
+  //display: none !important;
+  flex-flow: wrap;
+  position: absolute;
+  bottom: 14px;
+  display: list-item;
+  padding: 0 20px;
+  width: 100%;
+
+  h3,
+  p {
+    font-family: $font-title-light;
+    margin: 0;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+
+  h3 {
+    font-family: $font-title-semibold;
+    font-size: 14px;
+    color: $hl__dark;
+  }
+
+  p {
+    font-family: $font-title-regular;
+    font-size: 14px;
+    color: $hl__text-darker-grey;
+  }
+}

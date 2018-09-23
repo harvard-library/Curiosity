@@ -1,0 +1,30 @@
+@import '../../../../variables.scss';
+
+.itemList {
+  padding: 20px 0;
+	margin: 0 auto;
+	width: 95%;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+	&.grid-view {
+		align-items: flex-start;
+	}
+
+}
+
+.itemList.itemListHorizontal {
+	width: auto;
+	max-height: 720px;
+	overflow-y: hidden;
+	overflow-x: scroll;
+
+	.itemListItem {
+		display: inline-block;
+		vertical-align: top;
+
+	}
+}
