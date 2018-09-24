@@ -21,7 +21,7 @@
             </li>
             <li class="divider"></li>
           <% end %>
-          <% if defined?(current_exhibit) && can?(:curate, current_exhibit) %>
+          <% if defined?(current_exhibit) && current_exhibit.present? && can?(:curate, current_exhibit) %>
             <li>
               <%= link_to t('spotlight.header_links.dashboard'), spotlight.exhibit_dashboard_path(current_exhibit) %>
             </li>
@@ -41,7 +41,7 @@
         <%= link_to t('spotlight.header_links.login'), main_app.new_user_session_path %>
       </li>
     <% end %>
-    <% if defined?(current_exhibit) and show_contact_form? %>
+    <% if defined?(current_exhibit) && current_exhibit.present? && show_contact_form? %>
       <li>
         <%= link_to t('spotlight.header_links.contact'), spotlight.new_exhibit_contact_form_path(current_exhibit), data: {behavior: 'contact-link', target: 'report-problem-form' } %>
       </li>
