@@ -89,9 +89,11 @@ React assets are saved in `./app/web`, outside of the usual `./app/assets/javasc
 
 To build the React assets for development, run `yarn start`. By default, the `views/layouts/spotlight/spotlight.html.erb` template will request the JavaScript bundle from http://localhost:8080/webpack_bundle.js.
 
-To build the React assets for production and serve them through the host application, simply run `yarn build`. The resulting bundle will be pulled in through Sprockets when the application is run with the `RAILS_ENV=production` enviroment variable.
-
 Configuration can be found in `webpack.config.js` and `package.json`. You might also want to adjust the environment variables in `.env`, `.env.development`, and/or `.env.development.local`. Don't commit `.env*.local` files to git.
+
+## Deploying React Assets
+
+To build the React assets for production and serve them through the host application, simply run `yarn build`. (You'll most likely want to run this command as part of the build process on the host server.) The resulting bundle will be pulled in through Sprockets when the application is run with the `RAILS_ENV=production` enviroment variable.
 
 ## Tests
 
