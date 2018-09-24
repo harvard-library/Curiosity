@@ -177,11 +177,6 @@ module Spotlight
     def add_translations
       copy_file 'config/initializers/translation.rb'
     end
-<<<<<<< HEAD
-
-=======
-
->>>>>>> Log entries (#2)
     #Inserts a file to join multiple values by a <br> instead of a comma
     def add_join
       copy_file 'join.rb', 'app/presenters/blacklight/rendering/join.rb'
