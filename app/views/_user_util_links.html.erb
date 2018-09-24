@@ -21,7 +21,7 @@
             </li>
             <li class="divider"></li>
           <% end %>
-          <% if defined?(current_exhibit) && current_exhibit.present? && can?(:curate, current_exhibit) %>
+          <% if !current_exhibit.nil? && can?(:curate, current_exhibit) %>
             <li>
               <%= link_to t('spotlight.header_links.dashboard'), spotlight.exhibit_dashboard_path(current_exhibit) %>
             </li>
