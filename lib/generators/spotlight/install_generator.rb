@@ -65,12 +65,6 @@ module Spotlight
       copy_file 'nothumb_preview.png', 'app/assets/images/spotlight/themes/nothumb_preview.png'
     end
 
-    def add_theme_images
-      empty_directory 'app/assets/images/spotlight/themes'
-      copy_file 'default_preview.png', 'app/assets/images/spotlight/themes/default_preview.png'
-      copy_file 'nothumb_preview.png', 'app/assets/images/spotlight/themes/nothumb_preview.png'
-    end
-
     def add_roles_to_user
       inject_into_class 'app/models/user.rb', User, '  include Spotlight::User'
     end
@@ -135,7 +129,7 @@ module Spotlight
     end
 
     def update_assets_initializer
-      append_to_file('config/initializers/assets.rb', 'Rails.application.config.assets.precompile += %w( application_nothumb.css )')
+      append_to_file('config/initializers/assets.rb', "Rails.application.config.assets.precompile += %w( application_nothumb.css )\n")
     end
 
     def update_catalog_controller
@@ -177,6 +171,7 @@ module Spotlight
     def add_translations
       copy_file 'config/initializers/translation.rb'
     end
+
     #Inserts a file to join multiple values by a <br> instead of a comma
     def add_join
       copy_file 'join.rb', 'app/presenters/blacklight/rendering/join.rb'
