@@ -68,10 +68,7 @@ function getClientEnvironment() {
   return stringified;
 }
 
-const entry = NODE_ENV === 'development' ? [
-	require.resolve('react-dev-utils/webpackHotDevClient'),
-	'./app/web/index.js'
-] : ['./app/web/index.js'];
+const entry = [`${paths.appSrc}/index.js`];
 
 module.exports = {
 	devtool: NODE_ENV === 'development' && 'cheap-module-source-map',
@@ -199,9 +196,7 @@ module.exports = {
 	output: {
 		chunkFilename: '[name].chunk.js',
 		filename: 'webpack_bundle.js',
-		path: path.resolve(__dirname, 'app/assets/javascripts/spotlight'),
-		pathinfo: true,
-		publicPath: "/",
+		path: path.resolve('lib/generators/spotlight/templates')
 	},
 	performance: {
 		hints: false,
@@ -216,8 +211,5 @@ module.exports = {
 	],
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
-	},
-	devServer: {
-		contentBase: path.resolve(__dirname, 'app/assets/javascripts/spotlight')
 	}
 };

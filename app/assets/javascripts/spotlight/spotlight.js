@@ -14,10 +14,9 @@ Spotlight = function() {
 }();
 
 Blacklight.onLoad(function() {
-  Spotlight.activate();
+	Spotlight.activate();
 });
 
 Spotlight.onLoad(function(){
-  SpotlightNestable.init();
+	SpotlightNestable.init();
 });
-

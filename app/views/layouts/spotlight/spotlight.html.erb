@@ -31,7 +31,7 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-		<%= javascript_include_tag "application" %>	
+		<%= javascript_include_tag "application" %>
 	</head>
   <body class="<%= render_body_class %>">
   <%= render partial: 'shared/header_navbar' %>
@@ -52,13 +52,8 @@
   <%= render :partial => 'shared/footer' %>
 
   <!-- Load JavaScript last so that the rest of the page can start rendering -->
-	<% if Rails.env.development? %>
-		<!-- FIXME: Don't force developers to run server on localhost:8080 -->
-		<script src="//localhost:8080/webpack_bundle.js"></script>
-	<% else %>
-		<!-- FIXME: Put the webpack bundle on a CDN as part of deployment to production -->
-		<%= javascript_include_tag "spotlight/webpack_bundle" %>
-	<% end %>
+	<!-- FIXME: Put the webpack bundle on a CDN as part of deployment to production -->
+	<%= javascript_include_tag "webpack_bundle" %>
 	<%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
   </body>
 </html>

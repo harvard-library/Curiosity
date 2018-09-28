@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( spotlight/webpack_bundle.js )
+Rails.application.config.assets.precompile += %w( webpack_bundle.js )

@@ -57,6 +57,7 @@ module Spotlight
       copy_file 'spotlight.scss', 'app/assets/stylesheets/spotlight.scss'
       copy_file 'harvard.css', 'app/assets/stylesheets/harvard.css'
       copy_file 'spotlight.js', 'app/assets/javascripts/spotlight.js'
+			copy_file 'webpack_bundle.js', 'app/assets/javascripts/webpack_bundle.js'
     end
 
     def add_theme_images

@@ -162,6 +162,7 @@
     "prettier": "prettier app/web/**/*.js",
     "prettier:write": "prettier --write app/web/**/*.js",
     "start": "yarn run watch:js",
-    "watch:js": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --mode development"
-  }
+    "watch:js": "NODE_ENV=development webpack --watch --config ./webpack.config.js --mode development"
+  },
+	"precommit": "build"
 }
