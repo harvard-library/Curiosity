@@ -1,0 +1,169 @@
+@import '../../../../../variables.scss';
+
+.hl__spotlightFeatureContainer {
+  min-height: 600px;
+}
+
+.hl__spotlightFeature__content {
+  font-family: $font-reading;
+  font-size: 19px;
+  font-weight: normal;
+  color: $hl__text-dark;
+}
+
+.hl__spotlightFeatureContentContainer {
+  min-height: 600px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  color: $hl__text-dark;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $font-title-bold;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.09;
+    letter-spacing: 2.4px;
+    color: $hl__dark;
+    max-width: 930px;
+    margin: 15px auto;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin: 15px auto 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-family: $font-reading;
+    font-size: 19px;
+    line-height: 1.68;
+    color: $hl__text-dark;
+    max-width: 930px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+}
+
+.hl__spotlightFeatureContent__heading {
+  font-family: $font-title-bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.09;
+  letter-spacing: 2.4px;
+  color: $hl__dark;
+  max-width: 930px;
+  margin: 0 auto 27px;
+}
+
+.hl__spotlightFeatureContent__body {
+  font-family: $font-reading;
+  font-size: 19px;
+  line-height: 1.68;
+  color: $hl__text-dark;
+  max-width: 930px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.hl__spotlightFeatureContent__link {
+  font-family: $font-title-bold;
+  font-size: 19px;
+  color: $hl__text-strong-blue;
+}
+
+.hl__spotlightFeatureContent__imageFullContainer {
+  display: block;
+  margin: 57px auto;
+}
+
+.hl__spotlightFeatureContent__imageFull {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  background-image: url("/images/asian-rubbings-cover.jpg");
+}
+
+.hl__spotlightFeatureContent__imageFullCaption {
+  font-family: $font-title-regular;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  color: $hl__text-dark;
+  padding: 12px 0;
+}
+
+.hl__spotlightFeatureContent__imageFullLink {
+  font-family: $font-title-regular;
+  font-size: 14px;
+  color: $hl__text-dark-grey !important;
+
+  .viewerIcon {
+    margin-right: 14px;
+  }
+}
+
+.hl__spotlightFeature__collectionHighlights {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-top: 141px;
+  padding-bottom: 96px;
+  @media #{$breakpoint-1} {
+    margin: 20px;
+    padding-top: 0;
+  }
+
+  .hl__blacklightHome__seeAllContainer {
+    border-bottom: none;
+  }
+}
+
+.hl__spotlightFeature__divider {
+  width: 100%;
+  border-bottom: 2px solid $hl__dark;
+  margin-bottom: 96px;
+}
+
+.hl__spotlightFeature__sectionTitle {
+  font-family: $font-title-bold;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.31;
+  letter-spacing: 2.4px;
+  color: $hl__dark;
+}
+
+.hl__spotlightFeatureContent__imageRightContainer {
+  width: 33%;
+  float: right;
+  margin: 20px 0 20px 20px;
+}
+
+.hl__spotlightFeatureContent__imageLeftContainer {
+  width: 33%;
+  float: left;
+  margin: 20px 20px 20px 0;
+}
+
+.hl__spotlightFeatureContent__imageSmall {
+  padding: 30%;
+  background-image: url("/images/asian-rubbings-cover.jpg");
+  background-size: cover;
+  background-position: center;
+}

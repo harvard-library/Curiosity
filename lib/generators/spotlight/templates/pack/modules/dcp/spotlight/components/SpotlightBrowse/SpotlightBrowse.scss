@@ -1,0 +1,86 @@
+@import '../../../../../variables.scss';
+
+.hl__spotlightBrowseContainer {
+  min-height: 1000px;
+}
+
+.spotlightBrowseHeader {
+  background-image: url("/images/medieval_background.png");
+}
+
+.hl__spotlightBrowse__topicContainer {
+  max-width: 1450px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.hl__spotlightBrowse__topicDesc {
+  padding-right: 33%;
+  @media #{$breakpoint-1} {
+    padding-right: 0;
+    //margin: 0 20px;
+  }
+
+  p {
+    font-family: $font-title-light;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 1.68;
+    color: $hl__dark;
+    @media #{$breakpoint-1} {
+      font-size: 18px;
+    }
+  }
+}
+/*
+Browse grid
+*/
+.hl__spotlightBrowse__topicGridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 75px;
+  @media #{$breakpoint-1} {
+    padding: 0 20px;
+  }
+}
+
+.hl__spotlightBrowse__topicGridItem {
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+  width: 32%;
+  margin: 20px 0;
+  @media #{$breakpoint-1} {
+    width: 100%;
+  }
+}
+
+.hl__spotlightBrowse__topicLink {
+  overflow: hidden;
+  width: 100%;
+  padding: 30%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-decoration: none;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hl__spotlightBrowse__topicMeta {
+  margin-top: 20px;
+}
+
+.hl__spotlightBrowse__topicTitle {
+  font-family: $font-title-bold;
+  font-size: 32px;
+  font-weight: normal;
+  color: $hl__dark;
+}
+
+.hl__spotlightBrowse__topicCount {
+  font-family: $font-title-regular;
+  font-size: 18px;
+  color: $hl__dark;
+}

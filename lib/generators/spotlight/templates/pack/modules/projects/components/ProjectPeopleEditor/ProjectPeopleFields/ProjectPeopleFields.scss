@@ -1,0 +1,29 @@
+@import '../../../../../variables.scss';
+
+.projectPeopleAdd {
+	font-size: 12px;
+	padding: 10px 15px;
+	margin-top: 60px;
+}
+
+.projectPeopleNoResults {
+	padding: 30px 0 10px;
+
+}
+
+.projectPeopleLabels {
+	padding: 0;
+	margin: 20px 0 0;
+	background: #fefefe;
+	border-bottom: 1px solid $divider-light-grey;
+	border-top: 1px solid $divider-light-grey;
+
+	label {
+		display: block;
+		padding: 15px;
+		color: $dark;
+		font-weight: bold;
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+}

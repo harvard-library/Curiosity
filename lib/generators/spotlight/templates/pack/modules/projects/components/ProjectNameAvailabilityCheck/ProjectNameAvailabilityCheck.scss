@@ -1,0 +1,126 @@
+@import '../../../../variables.scss';
+
+
+.projectNameAvailabilityForm {
+	padding: 0;
+}
+
+.projectNameAvailabilityFormInputOuter {
+	margin: 50px 0;
+
+	label {
+		font-size: 14px;
+		display: block;
+	}
+
+	input {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 38px;
+		font-family: $font-reading;
+		font-weight: 100;
+		color: $dark;
+		border: none;
+		border-bottom: 2px solid $divider-light-grey;
+		padding: 15px 15px 5px 15px;
+		margin: 20px 0;
+		outline: none;
+		width: 90%;
+		max-width: 660px;
+		text-align: left;
+
+		&:focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: #bbb;
+		}
+	}
+}
+
+.projectNameAvailabilityFormURLOuter {
+
+	&.projectNameUnavailable {
+		input {
+			color: $accent-400;
+		}
+	}
+
+	input {
+		padding: 15px 0px 5px 15px;
+		width: 260px;
+		text-align: right;
+	}
+
+	.projectNameAvailabilityFormHelp {
+		padding-top: 45px;
+	}
+}
+
+.projectNameAvailabilityFormURL {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 32px;
+
+	span {
+		font-size: 38px;
+		font-family: $font-reading;
+		font-weight: 100;
+		color: #666;
+	}
+
+}
+
+.projectNameAvailabilityFormHelp {
+	font-size: 12px;
+	color: $primary;
+	padding: 40px 6px;
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+
+	&:hover {
+		color: $primary-dark;
+	}
+}
+
+.nameNotAvailable {
+	color: $accent-500;
+	opacity: 0;
+
+	&.nameNotAvailableVisible {
+		opacity: 1;
+	}
+}
+
+.projectNameAvaibilityButton {
+	display: inline-block;
+	margin: 60px 0 0;
+	color: $dark;
+	padding: 15px 25px;
+	background: transparent;
+	border: 2px solid $dark;
+	text-transform: uppercase;
+	font-family: $font-label;
+	cursor: pointer;
+	border-radius: 0;
+	outline: 0;
+	@include transition(all 100ms ease-in-out);
+
+	&.disabled {
+		opacity: 0.3;
+
+	}
+
+
+	&:hover {
+		background: $primary;
+		border: 2px solid $primary;
+		color: $light;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}

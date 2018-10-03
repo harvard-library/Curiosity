@@ -1,0 +1,26 @@
+@import '../../../../variables.scss';
+
+.searchFiltersWithLabel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .searchFiltersLabel {
+    display: block;
+    color: $dark;
+    min-width: 125px;
+  }
+
+  .searchFilter {
+    margin: 0 10px;
+  }
+}
+
+.searchPaginationAndTotalLabel {
+  span {
+    color: $dark;
+    padding: 25px 0;
+    display: block;
+  }
+}

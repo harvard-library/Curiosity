@@ -1,0 +1,21 @@
+@import '../../../../../variables.scss';
+
+.thumbnailImage {
+	margin: 0px 4px;
+	border: 6px solid transparent;
+	outline: 1px solid transparent;
+	cursor: pointer;
+	display: inline-block;
+	@include transition(all 100ms ease-in-out);
+
+	&:hover {
+		outline: 1px solid $dark;
+		&.isActiveImage {
+			outline: 1px solid $dark;
+		}
+	}
+
+	&.isActiveImage {
+		outline: 1px solid $divider;
+	}
+}

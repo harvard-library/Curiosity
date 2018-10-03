@@ -1,0 +1,93 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+		"plugin:react/recommended",
+		"plugin:prettier/recommended",
+		"react-app"
+	],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+	},
+	"plugins": ["prettier"],
+  "rules": {
+		"class-methods-use-this": "off",
+		"consistent-return": "off",
+		"indent": [
+  		"error",
+  		"tab"
+    ],
+		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"no-return-await": "off",
+		"no-unused-vars": "error",
+  	"comma-dangle": "off",
+  	"import/extensions": "off",
+  	"import/no-extraneous-dependencies": "off",
+  	"jsx-a11y/anchor-has-content": "off",
+  	"jsx-a11y/label-has-for": "off",
+  	"max-len": "off",
+  	"meteor/no-session": "off",
+  	"new-cap": "off",
+  	"no-absolute-path": "off",
+  	"no-bitwise": "off",
+  	"no-console": "off",
+  	"no-multiple-empty-lines": "off",
+  	"no-param-reassign": "off",
+  	"no-prototype-builtins": "off",
+  	"no-tabs": "off",
+  	"no-trailing-spaces": "off",
+  	"no-undef": "off",
+  	"no-underscore-dangle": "off",
+  	"object-curly-spacing": "off",
+  	"object-shorthand": "off",
+  	"padded-blocks": "off",
+		"prefer-arrow-callback": "off",
+		"prettier/prettier": ["warn", {
+			"parser": "flow",
+			"singleQuote": true
+		}],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/forbid-prop-types": "off",
+		"react/jsx-indent": [
+  		"error",
+  		"tab"
+    ],
+  	"react/jsx-indent-props": [
+  		"error",
+  		"tab"
+    ],
+  	"react/jsx-no-bind": "off",
+		"react/jsx-no-undef": "off",
+		"react/no-array-index-key": "off",
+		"react/no-danger": "off",
+		"react/no-unused-prop-types": "off",
+		"react/require-default-props": "off",
+  	"react/prefer-es6-class": "off",
+  	"react/prefer-stateless-function": "off",
+  	"react/prop-types": "off",
+  	"react/react-in-jsx-scope": "off",
+  	"react/sort-comp": "off",
+  	"space-before-function-paren": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["node_modules", "./client/src"]
+      }
+		},
+		"react": {
+			"version": "16.3"
+		}
+  }
+}

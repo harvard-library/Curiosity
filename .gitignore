@@ -29,7 +29,7 @@ pkg/
 .internal_test_app/*
 
 node_modules
-lib/generators/spotlight/templates/webpack_bundle.js.map
+webpack_bundle.*
 .env*.local
 .vagrant
 ubuntu*.log

@@ -1,0 +1,12 @@
+@import '../../../../variables.scss';
+
+
+.itemMetaField {
+
+  .thumbnailImages {
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+}
