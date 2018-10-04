@@ -51,9 +51,6 @@
 	<div id="react-root" />
   <%= render :partial => 'shared/footer' %>
 
-  <!-- Load JavaScript last so that the rest of the page can start rendering -->
-	<!-- FIXME: Put the webpack bundle on a CDN as part of deployment to production -->
-	<%= javascript_include_tag "webpack_bundle" %>
 	<%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
   </body>
 </html>
