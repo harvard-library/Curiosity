@@ -61,10 +61,12 @@ module Spotlight
       copy_file '.flowconfig'
       copy_file '.eslintignore'
       copy_file '.eslintrc.json'
+      # Ignores webpack output
+      copy_file '.gitignore.tt', '.gitignore'
       copy_file 'package.json'
       copy_file 'webpack.config.js'
 
-      directory 'pack', 'app/assets/javascripts/pack'
+      directory 'pack', 'app/assets/pack'
     end
 
     def add_theme_images

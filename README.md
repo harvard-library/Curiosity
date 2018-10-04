@@ -79,21 +79,32 @@ See more detailed instructions for development environment setup at ["Contributi
 
 ### Requirements
 
-1. [Node.js](https://nodejs.org/en/) (10 or greater) and [Yarn](https://yarnpkg.com/en/docs/install) (package manager)
+1. [Node.js](https://nodejs.org/en/) (10 or greater)
+2. [Yarn](https://yarnpkg.com/en/docs/install) (package manager)
 
 ### Setup
 
-1. With the above [requirements](#requirements-1) all dependencies can be installed by running `yarn`.
+Make sure you have [initialized](#installation) the Spotlight application using the Rails template:
 
-React assets are saved in `./app/web`, outside of the usual `./app/assets/javascripts` because they require additional build tools that Blacklight will not have enabled until [v7](https://github.com/projectblacklight/blacklight/wiki/Using-Webpacker-to-compile-javascript-assets).
+    $ rails new app-name -m https://raw.githubusercontent.com/projectblacklight/spotlight/[branch]/template.rb
 
-To build the React assets for development, run `yarn start`. By default, the `views/layouts/spotlight/spotlight.html.erb` template will request the JavaScript bundle from http://localhost:8080/webpack_bundle.js.
+Install npm dependencies:
 
-Configuration can be found in `webpack.config.js` and `package.json`. You might also want to adjust the environment variables in `.env`, `.env.development`, and/or `.env.development.local`. Don't commit `.env*.local` files to git.
+    $ yarn
+
+Start webpack:
+
+    $ yarn start
+
+Webpack watches for changes in `app/assets/pack` and writes the compiled output to `app/assets/javascripts/webpack_bundle.js`. Simply include the directive `<%= javascript_include_tag "webpack_bundle" %>` in the ERB template(s) where you would like to load the app.
+
+Configuration can be found in `webpack.config.js` and `package.json`. You will want to adjust the environment variables in `.env`, `.env.development`, and/or `.env.development.local`. Don't commit `.env*.local` files to git.
 
 ## Deploying React Assets
 
-To build the React assets for production and serve them through the host application, simply run `yarn build`. (You'll most likely want to run this command as part of the build process on the host server.) The resulting bundle will be pulled in through Sprockets when the application is run with the `RAILS_ENV=production` enviroment variable.
+To build the React assets for production, simply run `yarn build`. The output will be a static file at `app/assets/javascripts/webpack_bundle.js`. It will be loaded anywhere you have included the directive `<%= javascript_include_tag "webpack_bundle" %>`.
+
+(You'll most likely want to run this command as part of the build process on the remote host server.)
 
 ## Tests
 
