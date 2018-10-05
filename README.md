@@ -88,6 +88,10 @@ Make sure you have [initialized](#installation) the Spotlight application using 
 
     $ rails new app-name -m https://raw.githubusercontent.com/projectblacklight/spotlight/[branch]/template.rb
 
+Change directories into the root of your application:
+
+    $ cd app-name
+
 Install npm dependencies:
 
     $ yarn
@@ -102,9 +106,9 @@ Configuration can be found in `webpack.config.js` and `package.json`. You will w
 
 ## Deploying React Assets
 
-To build the React assets for production, simply run `yarn build`. The output will be a static file at `app/assets/javascripts/webpack_bundle.js`. It will be loaded anywhere you have included the directive `<%= javascript_include_tag "webpack_bundle" %>`.
+To build the React assets for production, simply run `yarn build`. (You'll most likely want to run this command as part of the build process on the remote host server.)
 
-(You'll most likely want to run this command as part of the build process on the remote host server.)
+The output will be a static file at `app/assets/javascripts/webpack_bundle.js`. It will be loaded anywhere you have included the directive `<%= javascript_include_tag "webpack_bundle" %>`.
 
 ## Tests
 

@@ -31,26 +31,25 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-		<%= javascript_include_tag "application" %>
-	</head>
+    <%= javascript_include_tag "application" %>
+  </head>
   <body class="<%= render_body_class %>">
-  <%= render partial: 'shared/header_navbar' %>
-  <%= render partial: 'shared/masthead' %>
-  <%= content_for?(:header_content) ? yield(:header_content) : "" %>
+    <%= render partial: 'shared/header_navbar' %>
+    <%= render partial: 'shared/masthead' %>
+    <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
-  <%= render partial: 'shared/ajax_modal' %>
+    <%= render partial: 'shared/ajax_modal' %>
 
-  <div id="main-container" class="container">
-    <%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
+    <div id="main-container" class="container">
+      <%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
 
-    <div class="row">
-      <%= content_for?(:content) ? yield(:content) : yield %>
-		</div>
-  </div>
+      <div class="row">
+        <%= content_for?(:content) ? yield(:content) : yield %>
+      </div>
+    </div>
 
-	<div id="react-root" />
-  <%= render :partial => 'shared/footer' %>
+    <%= render :partial => 'shared/footer' %>
 
-	<%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
+    <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
   </body>
 </html>
