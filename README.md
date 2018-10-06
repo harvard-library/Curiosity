@@ -86,7 +86,7 @@ See more detailed instructions for development environment setup at ["Contributi
 
 Make sure you have [initialized](#installation) the Spotlight application using the Rails template:
 
-    $ rails new app-name -m https://raw.githubusercontent.com/projectblacklight/spotlight/[branch]/template.rb
+    $ rails new app-name -m https://raw.githubusercontent.com/ArchimedesDigital/spotlight/master/template.rb
 
 Change directories into the root of your application:
 
@@ -100,7 +100,18 @@ Start webpack:
 
     $ yarn start
 
-Webpack watches for changes in `app/assets/pack` and writes the compiled output to `app/assets/javascripts/webpack_bundle.js`. Simply include the directive `<%= javascript_include_tag "webpack_bundle" %>` in the ERB template(s) where you would like to load the app.
+Webpack watches for changes in `app/assets/pack` and writes the compiled output to `app/assets/javascripts/webpack_bundle.js`. 
+
+By default, this file will be included in the `app/assets/javascripts/application.js` application
+manifest as part of `//= require_tree .` Functionally, that means that the React
+assets will appear in any view that uses `<%= javascript_include_tag
+'application' %>`. If this is not the behavior you're after, you'll want to
+create a separate layout that can be used on views where you _do_ want the React
+assets---be sure to modify `app/assets/javsacripts/application.js` accordingly.
+
+To load only the webpack bundle, simply include `<%= javascript_include_tag
+"webpack_bundle" %>` in the ERB template(s) where you would like to load the
+app.
 
 Configuration can be found in `webpack.config.js` and `package.json`. You will want to adjust the environment variables in `.env`, `.env.development`, and/or `.env.development.local`. Don't commit `.env*.local` files to git.
 
