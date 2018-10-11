@@ -114,7 +114,7 @@
     "enzyme-adapter-react-16": "1.5.0",
     "eslint": "4.1.1",
     "eslint-config-prettier": "3.0.1",
-    "eslint-config-react-app": "3.0.0-next",
+    "eslint-config-react-app": "3.0.3",
     "eslint-import-resolver-node": "0.3.2",
     "eslint-loader": "2.1.0",
     "eslint-plugin-flowtype": "2.50.0",
