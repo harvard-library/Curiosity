@@ -84,14 +84,51 @@ See more detailed instructions for development environment setup at ["Contributi
 
 ### Setup
 
+#### TL;DR:
+
+1. `$ rails new hulspotlight -m https://raw.githubusercontent.com/ArchimedesDigital/spotlight/master/template.rb`
+1. `$ cd hulspotlight`
+1. `$ cp .env.example .env`
+1. `$ yarn`
+1. `$ yarn start`
+1. `$ rails s`
+
+#### Initialize the application
 Make sure you have [initialized](#installation) the Spotlight
 application using the Rails template:
 
-    $ rails new app-name -m https://raw.githubusercontent.com/ArchimedesDigital/spotlight/master/template.rb
+    $ rails new hulspotlight -m https://raw.githubusercontent.com/ArchimedesDigital/spotlight/master/template.rb
 
 Change directories into the root of your application:
 
-    $ cd app-name
+    $ cd hulspotlight
+
+#### Configure the app environment
+You can adjust the environment variables in a `.env` file.
+We have provided a `.env.exmaple` file that you can use to get
+started---just `cp .env.example .env`. Make sure that environment
+variables intended for the React application are prefixed with
+`REACT_APP_`, and pay attention to the comments in the `.env` file.
+
+These variables are important for communicating with the GraphQL
+API provided by
+[hul-spotlight-api](http://gitlab.archimedes.digital/archimedes/hul-spotlight-api).
+Although we will not cover its setup here, make sure that you have
+this application running and your environment configured correctly,
+otherwise changes that you make to your exhibits through the React
+app will not be saved.
+
+Note that these variables must be set before running `yarn start`
+(detailed below), and if you change them, you must stop and restart
+the `yarn start` process. This is because the webpack process kicked
+off by `yarn start` needs to pass static values into the front-end
+assets as it's building them. The JavaScript files themselves do
+not have access to the actual `process.env` object, so the app
+cannot respond to changes to environment variables unless it
+is recompiled.
+
+Environment variables set from the command line will override
+`.env`-set variables. Do not commit `.env`.
 
 Install npm dependencies:
 
@@ -119,12 +156,6 @@ where you would like to load the app.
 
 Configuration can be found in `webpack.config.js` and
 `package.json`.
-
-You might want to adjust the environment variables in
-`.env`. Environment variables set from the command line will override
-`.env` variables. Make sure that environment variables intended for
-the React application are prefixed with `REACT_APP_`, and pay
-attention to the comments in the `.env` file.
 
 ## Deploying React Assets
 
