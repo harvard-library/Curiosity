@@ -59,6 +59,7 @@ module Spotlight
       copy_file 'spotlight.js', 'app/assets/javascripts/spotlight.js'
       copy_file '.babelrc'
       copy_file '.flowconfig'
+      copy_file '.env.tt', '.env'
       copy_file '.eslintignore'
       copy_file '.eslintrc.json'
       # Ignores webpack output
