@@ -118,9 +118,13 @@ javascript_include_tag "webpack_bundle" %>` in the ERB template(s)
 where you would like to load the app.
 
 Configuration can be found in `webpack.config.js` and
-`package.json`. You will want to adjust the environment variables in
+`package.json`.
+
+You might want to adjust the environment variables in
 `.env`. Environment variables set from the command line will override
-`.env` variables.
+`.env` variables. Make sure that environment variables intended for
+the React application are prefixed with `REACT_APP_`, and pay
+attention to the comments in the `.env` file.
 
 ## Deploying React Assets
 
