@@ -104,11 +104,11 @@ Change directories into the root of your application:
     $ cd hulspotlight
 
 #### Configure the app environment
-You can adjust the environment variables in a `.env` file.
-We have provided a `.env.exmaple` file that you can use to get
+You can adjust the environment variables in a .env file.
+We have provided a .env.example file that you can use to get
 started---just `cp .env.example .env`. Make sure that environment
 variables intended for the React application are prefixed with
-`REACT_APP_`, and pay attention to the comments in the `.env` file.
+`REACT_APP_`, and pay attention to the comments in the .env file.
 
 These variables are important for communicating with the GraphQL
 API provided by
@@ -128,13 +128,13 @@ cannot respond to changes to environment variables unless it
 is recompiled.
 
 Environment variables set from the command line will override
-`.env`-set variables. Do not commit `.env`.
+.env-set variables. Do not commit .env.
 
-Install npm dependencies:
+#### Install npm dependencies:
 
     $ yarn
 
-Start webpack:
+#### Start webpack:
 
     $ yarn start
 
@@ -159,9 +159,14 @@ Configuration can be found in `webpack.config.js` and
 
 ## Deploying React Assets
 
+1. `$ yarn build`
+
 To build the React assets for production, simply run `yarn
-build`. (You'll most likely want to run this command as part of the
-build process on the remote host server.)
+build`.
+
+Because the `webpack_bundle.js` file is ignored by git (it
+is included in the .gitignore), **you must run `yarn build`
+on the remote host.**
 
 The output will be a static file at
 `app/assets/javascripts/webpack_bundle.js`. It will be loaded anywhere
