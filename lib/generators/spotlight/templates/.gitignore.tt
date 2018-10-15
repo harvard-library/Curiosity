@@ -23,4 +23,3 @@
 .byebug_history
 webpack_bundle.*
 .env
-.env*
