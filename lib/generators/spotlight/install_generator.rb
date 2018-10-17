@@ -66,7 +66,8 @@ module Spotlight
       copy_file '.gitignore.tt', '.gitignore'
       copy_file 'package.json'
       copy_file 'webpack.config.js'
-
+      
+      directory 'images', 'app/assets/images'
       directory 'pack', 'app/assets/pack'
     end
 
