@@ -94,37 +94,37 @@
   }
 
   &.bough {
-    background-image: url("/images/goldenbough.jpg");
+    background-image: url("/assets/goldenbough.jpg");
     @media #{$breakpoint-1} {
-      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
-      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
-      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/goldenbough.jpg");
+      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/goldenbough.jpg");
+      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/goldenbough.jpg");
+      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/goldenbough.jpg");
     }
   }
 
   &.boughActive {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/goldenbough.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/assets/goldenbough.jpg");
   }
 
   &.eclogues {
-    background-image: url("/images/eclogues.jpg");
+    background-image: url("/assets/eclogues.jpg");
     @media #{$breakpoint-1} {
-      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
-      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
-      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/images/eclogues.jpg");
+      background-image: -webkit-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/eclogues.jpg");
+      background-image: -o-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/eclogues.jpg");
+      background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/assets/eclogues.jpg");
     }
   }
 
   &.highlightActive {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/eclogues.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/assets/eclogues.jpg");
   }
 
   &.colosseum {
-    background-image: url("/images/colosseum.jpg");
+    background-image: url("/assets/colosseum.jpg");
   }
 
   &.colosseumActive {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/images/colosseum.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("/assets/colosseum.jpg");
   }
 }
 
