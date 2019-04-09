@@ -1,3 +1,7 @@
+2.3.2-lts-4 (04/11/2019) VC
+--Reimplementing Google Analytics (DCP-395)
+--Correcting masthead upload (DCP-27)
+
 2.3.2-lts-3 (03/18/2019) VC
 --The space between "Harvard" and "Digital Collections" in the blue bar header has been changed from 15 pixels to 10 pixels
 --The "View Exhibit" buttons are smaller (Removed the padding and margins). This ensures they will stay within their cell and does not overlap with other exhibits.
