@@ -1,3 +1,8 @@
+2.3.2-lts-5 (05/07/2019) PP/MC
+--Using Google Fonts locally to allow CSS to fully load (DCP-372)
+--Removed extra menu that appeared to right of screen (DCP-379)
+--Updated footer links (DCP-381)
+
 2.3.2-lts-4 (04/11/2019) VC
 --Reimplementing Google Analytics (DCP-395)
 --Correcting masthead upload (DCP-27)
