@@ -62,6 +62,9 @@ module Spotlight
       #create a nothumb directory for the nothumb theme 
       empty_directory 'app/assets/stylesheets/nothumb'
       empty_directory 'app/assets/stylesheets/hldcp'
+
+      #create a fonts directory
+      empty_directory 'app/assets/fonts'
       
       #use our modified application.css
       copy_file 'application.css', 'app/assets/stylesheets/application.css' 
@@ -73,6 +76,14 @@ module Spotlight
       copy_file 'harvard.css', 'app/assets/stylesheets/harvard.css'
       copy_file 'harvard-main.css', 'app/assets/stylesheets/harvard-main.css'
       copy_file 'spotlight.js', 'app/assets/javascripts/spotlight.js'
+
+      #copy the lora fonts
+      copy_file 'lora-font.css', 'app/assets/stylesheets/lora-font.css'
+      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.eot', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.eot'
+      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.svg', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.svg'
+      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.ttf', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.ttf'
+      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff'
+      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff2', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff2'
     end
     
     def add_theme_images
@@ -81,6 +92,8 @@ module Spotlight
       copy_file 'nothumb_preview.png', 'app/assets/images/spotlight/themes/nothumb_preview.png' 
       copy_file 'hldcp_preview.png', 'app/assets/images/spotlight/themes/hldcp_preview.png' 
     end
+
+
 
     def add_roles_to_user
       inject_into_class 'app/models/user.rb', User, '  include Spotlight::User'

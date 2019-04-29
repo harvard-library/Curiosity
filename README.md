@@ -25,7 +25,7 @@ $ rails new app-name -m https://raw.githubusercontent.com/harvard-library/spotli
 or from an existing Rails application:
 
 ```
-$ rake rails:template LOCATION=https://raw.githubusercontent.com/harvard-library/spotlight/harvard_development/template.rb
+$ rake app:template LOCATION=https://raw.githubusercontent.com/harvard-library/spotlight/harvard_development/template.rb
 ```
 
 *During this process you will be prompted to enter an initial administrator email and password (this is a super-admin that can administer any exhibit in the installation).* If you choose not to create one, the first user will be given administrative privileges.
