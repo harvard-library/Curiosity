@@ -6,9 +6,8 @@ blacklight_options = ENV.fetch('BLACKLIGHT_INSTALL_OPTIONS', DEFAULT_BLACKLIGHT_
 spotlight_options = ENV.fetch('SPOTLIGHT_INSTALL_OPTIONS', DEFAULT_SPOTLIGHT_OPTIONS)
 
 # Add gem dependencies to the application
-gem 'blacklight', ' ~> 6.0'
-gem 'blacklight-spotlight', ENV['SPOTLIGHT_GEM'] ? { path: ENV['SPOTLIGHT_GEM'] } : { github: 'harvard-library/spotlight', :branch => 'harvard_development' }
-
+gem 'blacklight', '6.19.2'
+gem 'blacklight-spotlight', ENV['SPOTLIGHT_GEM'] ? { path: ENV['SPOTLIGHT_GEM'] } : { github: 'harvard-library/spotlight', :branch => 'harvard_development_hackathon' }
 
 Bundler.with_clean_env do
   run 'bundle install'
