@@ -1,17 +1,13 @@
 #!/bin/sh
 
-#  deploy.sh
-#
-#  This assumes that it lives in the ~/deploy directory and that the tar.gz file to be deployed
-# is also in the deploy directory (the only tar.gz file in the directory).
-# Make sure to set the <instance name> in the first variable.
+#  deployment.sh
+#  
 #
 #  Created by Valdeva Crema on 4/22/19.
 #
 
-#SET THE INSTANCE
-deploy_dir='<instance name>'
-datestamp=$(date +"%Y-%d-%m")
+deploy_dir='qa'
+datestamp=$(date +"%Y-%m-%d")
 
 #start in home dir
 cd
@@ -27,14 +23,14 @@ release_file=""
 
 for entry in deploy/*.tar.gz
 do
-release_file="$(basename $entry)"
-break
+  release_file="$(basename $entry)"
+  break
 done
 
 if [ -z $release_file ]; then
-echo "=======> Can not find release file to unzip. Please make sure it is in the ~/deploy directory=======>"
-echo "Terminating deploy"
-exit 1
+    echo "=======> Can not find release file to unzip. Please make sure it is in the ~/deploy directory=======>"
+    echo "Terminating deploy"
+    exit 1
 fi
 
 #Copy the file to the deploy directory
@@ -77,19 +73,18 @@ cd $deploy_dir
 
 If migrations exist, run the migrations command
 if [ -z "$(ls -A db/migrate)" ]; then
-echo "=======> No migrations to run=======>"
+    echo "=======> No migrations to run=======>"
 else
-echo "=======> Running migrations=======>"
+    echo "=======> Running migrations=======>"
 #    bundle exec rake db:migrate
 fi
 
 #Verify that delayed jobs is running and start it up if it isn't
 if ! pidof "delayed_job" > /dev/null
 then
-echo "=======> Starting delayed job=======>"
-#   bin/delayed_job start &
+   echo "=======> Starting delayed job=======>"
+   bin/delayed_job start &
 fi
 
 #Restart apache
-echo "=======> Setup complete. Restarting Apache =======>"
-touch tmp/restart.txt
+echo "=======> Setup complete. Please restart Apache =======>"
