@@ -1,3 +1,6 @@
+2.3.2-lts-6  PP
+--DCP-437: Updated sidebar link colors for About Pages and Feature Pages.
+
 2.3.2-lts-5 (05/09/2019) PP/MC/VC
 --Using Google Fonts locally and disabled turbolinks on homepage Visit Exhibit links. to allow CSS to fully load (DCP-372)
 --Removed extra menu that appeared to right of screen (DCP-379)
