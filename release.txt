@@ -1,5 +1,7 @@
-2.3.2-lts-6  PP
+2.3.2-lts-6  PP/VC
 --DCP-437: Updated sidebar link colors for About Pages and Feature Pages.
+--DCP-452: CURIOSity: Move Items page link from Curation area to Configuration area
+--DCP-453: CURIOSity: Move Tags page link from Curation area to Configuration area
 
 2.3.2-lts-5 (05/09/2019) PP/MC/VC
 --Using Google Fonts locally and disabled turbolinks on homepage Visit Exhibit links. to allow CSS to fully load (DCP-372)

@@ -11,4 +11,8 @@
     <li><%= link_to t(:'spotlight.configuration.sidebar.metadata'), spotlight.edit_exhibit_metadata_configuration_path(current_exhibit) %></li>
     <li><%= link_to t(:'spotlight.configuration.sidebar.search_configuration'), spotlight.edit_exhibit_search_configuration_path(current_exhibit) %></li>
   <% end %>
+  <li><%= link_to t(:'spotlight.curation.sidebar.items'), spotlight.admin_exhibit_catalog_path(current_exhibit) %></li>
+  <% if can? :tag, current_exhibit %>
+  <li><%= link_to t(:'spotlight.curation.sidebar.tags'), spotlight.exhibit_tags_path(current_exhibit) %></li>
+  <% end %>
 </ul>
