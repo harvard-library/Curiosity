@@ -63,6 +63,7 @@ module Spotlight
     end
 
     def admin
+      authorize! :update, @exhibit
       add_breadcrumb t(:'spotlight.curation.sidebar.header'), exhibit_dashboard_path(@exhibit)
       add_breadcrumb t(:'spotlight.curation.sidebar.items'), admin_exhibit_catalog_path(@exhibit)
       (@response, @document_list) = search_results(params)
