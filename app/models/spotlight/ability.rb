@@ -18,6 +18,7 @@ module Spotlight
       can :manage, Spotlight::Role, resource_id: user.admin_roles.pluck(:resource_id), resource_type: 'Spotlight::Exhibit'
 
       can :manage, PaperTrail::Version if user.roles.any?
+      can :manage, FeaturedImage if user.roles.any?
 
       # exhibit curator
       can :manage, [
