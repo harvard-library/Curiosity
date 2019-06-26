@@ -76,6 +76,7 @@ module Spotlight
       copy_file 'harvard.css', 'app/assets/stylesheets/harvard.css'
       copy_file 'harvard-main.css', 'app/assets/stylesheets/harvard-main.css'
       copy_file 'spotlight.js', 'app/assets/javascripts/spotlight.js'
+      copy_file 'masked_role.css', 'app/assets/stylesheets/masked_role.css'
 
       #copy the lora fonts
       copy_file 'lora-font.css', 'app/assets/stylesheets/lora-font.css'
