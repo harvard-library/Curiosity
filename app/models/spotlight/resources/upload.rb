@@ -1,10 +1,12 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 module Spotlight
   module Resources
     ##
     # Exhibit-specific resources, created using uploaded and custom fields
     class Upload < Spotlight::Resource
-      belongs_to :upload, class_name: 'Spotlight::FeaturedImage', optional: true
+      belongs_to :upload, class_name: 'Spotlight::FeaturedImage', optional: true, validate: true
 
       # we want to do this before reindexing
       after_create :update_document_sidecar

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Base page class. See {Spotlight::AboutPage}, {Spotlight::FeaturePage}, {Spotlight::HomePage}
@@ -9,8 +11,12 @@ module Spotlight
     friendly_id :title, use: [:slugged, :scoped, :finders, :history], scope: [:exhibit, :locale]
 
     belongs_to :exhibit, touch: true
+    # Ignoring for https://github.com/rubocop-hq/rubocop/issues/6764
+    # rubocop:disable Rails/ReflectionClassName
     belongs_to :created_by, class_name: Spotlight::Engine.config.user_class, optional: true
     belongs_to :last_edited_by, class_name: Spotlight::Engine.config.user_class, optional: true
+    # rubocop:enable Rails/ReflectionClassName
+
     belongs_to :thumbnail, class_name: 'Spotlight::FeaturedImage', dependent: :destroy, optional: true
     belongs_to :default_locale_page, class_name: 'Spotlight::Page', optional: true, inverse_of: :translated_pages
     has_many :translated_pages,
@@ -129,6 +135,7 @@ module Spotlight
         np.locale = locale
         np.default_locale_page = self
         np.published = false
+        np.slug = slug
 
         if !top_level_page? && (parent_translation = parent_page.translated_page_for(locale)).present?
           np.parent_page = parent_translation
@@ -142,12 +149,15 @@ module Spotlight
 
     def update_translated_pages_weights_and_parent_page
       return unless locale.to_sym == I18n.default_locale
-      return unless saved_change_to_weight? || saved_change_to_parent_page_id?
 
-      update_params = {}
-      update_params[:weight] = weight if saved_change_to_weight?
-      update_params[:parent_page_id] = parent_page_id if saved_change_to_parent_page_id?
-      translated_pages.update(update_params)
+      if saved_change_to_parent_page_id?
+        translated_pages.find_each do |translated_page|
+          parent_translation = parent_page&.translated_page_for(translated_page.locale)
+          translated_page.update(parent_page_id: parent_translation&.id)
+        end
+      end
+
+      translated_pages.update(weight: weight) if saved_change_to_weight?
     end
   end
   # rubocop:enable Metrics/ClassLength

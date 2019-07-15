@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Module that extends I18n::Backend::ActiveRecord::Translation to provide
@@ -20,6 +22,8 @@ module Spotlight
       end
 
       def current_exhibit=(exhibit)
+        I18n.backend.reload! if Thread.current[:current_exhibit] != exhibit
+
         Thread.current[:current_exhibit] = exhibit
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Spotlight::ReindexProgress, type: :model do
   let(:job_log_entry) do
     FactoryBot.create(:failed_reindexing_log_entry, job_items_estimate: 12)

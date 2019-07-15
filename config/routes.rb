@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spotlight::Engine.routes.draw do
   devise_for :contact_email, class_name: 'Spotlight::ContactEmail', only: [:confirmations]
 
@@ -54,7 +56,11 @@ Spotlight::Engine.routes.draw do
 
     concern :exportable, Blacklight::Routes::Exportable.new
 
-    resources :solr_documents, except: [:index], path: '/catalog', controller: 'catalog' do
+    resources :solr_documents,
+              except: [:index],
+              path: '/catalog',
+              controller: 'catalog',
+              id: Blacklight::Engine.config.routes.identifier_constraint do
       concerns :exportable
 
       member do

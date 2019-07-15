@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'bundler'
 
-DEFAULT_BLACKLIGHT_OPTIONS = '--devise'.freeze
-DEFAULT_SPOTLIGHT_OPTIONS = '-f --openseadragon --mailer_default_url_host=localhost:3000'.freeze
+DEFAULT_BLACKLIGHT_OPTIONS = '--devise'
+DEFAULT_SPOTLIGHT_OPTIONS = '-f --openseadragon --mailer_default_url_host=localhost:3000'
 blacklight_options = ENV.fetch('BLACKLIGHT_INSTALL_OPTIONS', DEFAULT_BLACKLIGHT_OPTIONS)
 spotlight_options = ENV.fetch('SPOTLIGHT_INSTALL_OPTIONS', DEFAULT_SPOTLIGHT_OPTIONS)
 
 # Add gem dependencies to the application
-gem 'blacklight', '6.19.2'
+gem 'blacklight', ' ~> 6.0'
 gem 'blacklight-spotlight', ENV['SPOTLIGHT_GEM'] ? { path: ENV['SPOTLIGHT_GEM'] } : { github: 'harvard-library/spotlight', :branch => 'harvard_development' }
 
 Bundler.with_clean_env do

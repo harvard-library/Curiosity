@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
@@ -20,7 +22,7 @@ these collections.)
   s.required_ruby_version = '~> 2.3'
 
   s.add_dependency 'rails', '~> 5.1'
-  s.add_dependency 'blacklight', '6.19.2'
+  s.add_dependency 'blacklight', '~> 6.20'
   s.add_dependency 'autoprefixer-rails'
   s.add_dependency 'cancancan'
   s.add_dependency 'sir_trevor_rails', '~> 0.5'
@@ -49,23 +51,22 @@ these collections.)
   s.add_dependency 'clipboard-rails', '~> 1.5'
   s.add_dependency 'almond-rails', '~> 0.1'
   s.add_dependency 'sprockets-es6'
-  s.add_dependency 'riiif', '~> 1.0'
+  s.add_dependency 'riiif', '~> 2.0'
   s.add_dependency 'iiif-presentation'
   s.add_dependency 'iiif_manifest'
   s.add_dependency 'leaflet-rails'
   s.add_dependency 'i18n-active_record'
-  s.add_dependency 'i18n', '< 1.1' # pinned until Rails and i18n sort our compatibility https://github.com/rails/rails/pull/33574
 
-  s.add_development_dependency 'sqlite3', '~> 1.3.13'
+  s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails', '~> 3.1'
   s.add_development_dependency 'rspec-its'
   s.add_development_dependency 'rspec-activemodel-mocks'
   s.add_development_dependency 'rspec-collection_matchers'
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'capybara', '~> 3'
-  s.add_development_dependency 'rubocop', '~> 0.54'
+  s.add_development_dependency 'rubocop', '~> 0.64.0'
   s.add_development_dependency 'rubocop-rspec', '~> 1.25'
-  s.add_development_dependency 'chromedriver-helper', '< 2.0.0' # 2.1.0 is causing "Unable to find chromedriver" on Travis
+  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'factory_bot', '~> 4.5'
   s.add_development_dependency 'engine_cart', '~> 2.0'

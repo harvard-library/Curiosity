@@ -25,7 +25,7 @@ module Spotlight
     end
 
     def riiif
-      gem 'riiif', '~> 1.0'
+      gem 'riiif', '~> 2.0'
       route "mount Riiif::Engine => '/images', as: 'riiif'"
       copy_file 'config/initializers/riiif.rb'
     end
@@ -112,6 +112,8 @@ module Spotlight
 
       #copy logo
       copy_file 'hl_header-logo.svg', 'app/assets/images/hl_header-logo.svg'
+      #copy cc file
+      copy_file 'cc-88x31.png', 'app/assets/images/cc-88x31.png'
 
     end
     

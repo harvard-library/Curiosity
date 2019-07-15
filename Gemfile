@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -54,9 +56,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Pinning to 6.19.2 because 6.20 breaks the app
-gem 'blacklight', '6.19.2'
-gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_development_hackathon'
+gem 'blacklight', '~> 6.20.0'
+gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_development'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
@@ -67,7 +68,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'friendly_id'
-gem 'riiif', '~> 1.0'
+gem 'riiif', '~> 2.0'
 gem 'sitemap_generator'
 gem 'blacklight-gallery', '>= 0.3.0'
 gem 'blacklight-oembed', '>= 0.1.0'

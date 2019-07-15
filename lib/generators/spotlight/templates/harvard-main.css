@@ -787,9 +787,11 @@ span.hl__topHeaderTitle__collections {
   -ms-flex-flow: wrap;
   flex-flow: wrap;
 }
-.hl__ccContainer svg {
-  margin-right: 10px;
+img.hl__ccImage {
+    float: left;
+    margin-right: 10px;
 }
+
 .hl__ccContainer p {
   font-family: TruenoLight;
   font-size: 15px;

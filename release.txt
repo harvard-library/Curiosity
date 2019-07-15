@@ -1,10 +1,15 @@
+2.7.0-lts-1 VC
+--DCP-484: CURIOSity: Upgrade Spotlight to 2.7.0
+--DCP-376: CURIOSity: DESIGN - Masthead no longer reflects crop and distorts the image
+--DCP-461: CURIOSity - Lora fonts not working in prod mode
+--DCP-503: Update Footer CC language and image
+
 2.3.2-lts-6  PP/VC
 --DCP-437: Updated sidebar link colors for About Pages and Feature Pages.
 --DCP-452: CURIOSity: Move Items page link from Curation area to Configuration area
 --DCP-453: CURIOSity: Move Tags page link from Curation area to Configuration area
 --DCP-436: CURIOSity: Enable 'curator' role to add thumbnails to browse categories and pages
 --DCP-471: CURIOSity: Allow site admin users to toggle between site admin and curator roles for testing purposes
---DCP-376: CURIOSity: DESIGN - Masthead no longer reflects crop and distorts the image
 --DCP-478: CURIOSity - Update footer link
 
 2.3.2-lts-5 (05/09/2019) PP/MC/VC

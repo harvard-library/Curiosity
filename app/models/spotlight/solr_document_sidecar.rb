@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Exhibit-specific metadata for indexed documents
@@ -6,9 +8,9 @@ module Spotlight
 
     acts_as_taggable
 
-    belongs_to :exhibit, required: true
+    belongs_to :exhibit, optional: false
     belongs_to :resource, optional: true
-    belongs_to :document, required: true, polymorphic: true
+    belongs_to :document, optional: false, polymorphic: true
     serialize :data, Hash
     serialize :index_status, Hash
 
