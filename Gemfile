@@ -56,7 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Pinning to 6.19.2 because 6.20 breaks the app
 gem 'blacklight', '6.19.2'
-gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_development'
+gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_development_hackathon'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'

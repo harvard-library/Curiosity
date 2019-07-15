@@ -77,14 +77,42 @@ module Spotlight
       copy_file 'harvard-main.css', 'app/assets/stylesheets/harvard-main.css'
       copy_file 'spotlight.js', 'app/assets/javascripts/spotlight.js'
       copy_file 'masked_role.css', 'app/assets/stylesheets/masked_role.css'
+      copy_file 'fonts.scss', 'app/assets/stylesheets/fonts.scss'
 
-      #copy the lora fonts
-      copy_file 'lora-font.css', 'app/assets/stylesheets/lora-font.css'
-      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.eot', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.eot'
-      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.svg', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.svg'
-      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.ttf', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.ttf'
-      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff'
-      copy_file 'lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff2', 'app/assets/fonts/lora-v13-latin_cyrillic_latin-ext_cyrillic-ext-regular.woff2'
+      #copy the trueno fonts
+      copy_file 'truenobdit-webfont.ttf', 'app/assets/fonts/truenobdit-webfont.ttf'
+      copy_file 'truenobdit-webfont.woff', 'app/assets/fonts/truenobdit-webfont.woff'
+      copy_file 'truenobdit-webfont.woff2', 'app/assets/fonts/truenobdit-webfont.woff2'
+      copy_file 'truenobd-webfont.ttf', 'app/assets/fonts/truenobd-webfont.ttf'
+      copy_file 'truenobd-webfont.woff', 'app/assets/fonts/truenobd-webfont.woff'
+      copy_file 'truenobd-webfont.woff2', 'app/assets/fonts/truenobd-webfont.woff2'
+      copy_file 'truenoblkit-webfont.ttf', 'app/assets/fonts/truenoblkit-webfont.ttf'
+      copy_file 'truenoblkit-webfont.woff', 'app/assets/fonts/truenoblkit-webfont.woff'
+      copy_file 'truenoblkit-webfont.woff2', 'app/assets/fonts/truenoblkit-webfont.woff2'
+      copy_file 'truenoblk-webfont.woff', 'app/assets/fonts/truenoblk-webfont.woff'
+      copy_file 'truenoblk-webfont.woff2', 'app/assets/fonts/truenoblk-webfont.woff2'
+      copy_file 'truenoltit-webfont.woff', 'app/assets/fonts/truenoltit-webfont.woff'
+      copy_file 'truenoltit-webfont.woff2', 'app/assets/fonts/truenoltit-webfont.woff2'
+      copy_file 'truenolt-webfont.ttf', 'app/assets/fonts/truenolt-webfont.ttf'
+      copy_file 'truenolt-webfont.woff', 'app/assets/fonts/truenolt-webfont.woff'
+      copy_file 'truenolt-webfont.woff2', 'app/assets/fonts/truenolt-webfont.woff2'
+      copy_file 'truenorgit-webfont.woff', 'app/assets/fonts/truenorgit-webfont.woff'
+      copy_file 'truenorgit-webfont.woff2', 'app/assets/fonts/truenorgit-webfont.woff2'
+      copy_file 'truenorg-webfont.woff', 'app/assets/fonts/truenorg-webfont.woff'
+      copy_file 'truenorg-webfont.woff2', 'app/assets/fonts/truenorg-webfont.woff2'
+      copy_file 'truenosbdit-webfont.woff', 'app/assets/fonts/truenosbdit-webfont.woff'
+      copy_file 'truenosbdit-webfont.woff2', 'app/assets/fonts/truenosbdit-webfont.woff2'
+      copy_file 'truenosbd-webfont.ttf', 'app/assets/fonts/truenosbd-webfont.ttf'
+      copy_file 'truenosbd-webfont.woff', 'app/assets/fonts/truenosbd-webfont.woff'
+      copy_file 'truenosbd-webfont.woff2', 'app/assets/fonts/truenosbd-webfont.woff2'
+      copy_file 'truenoultltit-webfont.woff', 'app/assets/fonts/truenoultltit-webfont.woff'
+      copy_file 'truenoultltit-webfont.woff2', 'app/assets/fonts/truenoultltit-webfont.woff2'
+      copy_file 'truenoultlt-webfont.woff', 'app/assets/fonts/truenoultlt-webfont.woff'
+      copy_file 'truenoultlt-webfont.woff2', 'app/assets/fonts/truenoultlt-webfont.woff2'
+
+      #copy logo
+      copy_file 'hl_header-logo.svg', 'app/assets/images/hl_header-logo.svg'
+
     end
     
     def add_theme_images

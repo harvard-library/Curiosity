@@ -10,12 +10,12 @@ text-align: center;
 }
 
 .container.site-title-container {
-    padding: 55px 0;
-    margin-bottom: 94px;
-    //display: block;
-    display: inline;
-    height: auto;
-    //min-height: 350px;
+    padding: 140px 0 220px;
+    height: 360px;
+    line-height: 360px;
+    text-align: center;
+    width: 100%;
+
 }
 
 .image-masthead .navbar {
@@ -54,6 +54,11 @@ background-color: transparent;
 border-bottom: 3px solid;
     border-color: rgba(255,255,255,0.8);
 text-decoration: none;
+}
+
+.image-masthead .background-container {
+    -webkit-filter: none;
+    filter: none;
 }
 
 .input-group .form-control:not(:first-child):not(:last-child) {
@@ -408,5 +413,5 @@ body.blacklight-feature_pages #sidebar {
 }
 
 #sidebar ol.sidenav li > h4 > a {
-    color: #23527c;
+    color: #0579B8;
 }

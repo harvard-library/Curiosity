@@ -152,7 +152,7 @@ module Spotlight
     config.iiif_title_fields = nil
     config.default_json_ld_language = 'en'
 
-    config.masthead_initial_crop_selection = [2400, 565]
+    config.masthead_initial_crop_selection = [1350, 360]
     config.thumbnail_initial_crop_selection = [120, 120]
 
     # Configure the CarrierWave file storage mechanism

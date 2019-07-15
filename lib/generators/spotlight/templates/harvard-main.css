@@ -248,6 +248,7 @@
   cursor: pointer;
 }
 .hl__topHeader__link:hover {
+  text-decoration: none;
   color: #fff;
 }
 .hl__topHeaderTitle__harvard a {
@@ -701,12 +702,16 @@ span.hl__topHeaderTitle__collections {
   padding-right: 30px;
 }
 .hl__footerLinkRight a {
-  font-family: TruenoLight;
-  font-weight: 100;
+  border-bottom: 3px solid transparent;
+  font-family: "Trueno", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 300;
   color: #fff;
   font-size: 14px;
   line-height: 1.87;
   text-align: right;
+  text-decoration: none;
+  -webkit-transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+  transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
 }
 .hl__footerLinkRight a:hover {
   text-decoration: none;
@@ -3949,4 +3954,26 @@ section .hl__blacklightHome__itemHighlights{display:none;}
 .st__content-block--list li {
   font-family: Lora;
   list-style: initial;
+}
+
+.hl__ccContainer {
+  min-height: 150px;
+  padding-top: 30px;
+  flex: 1 1 100%;
+  align-items: center;
+  display: flex;
+  flex-flow: wrap;
+}
+
+p.hl__ccLicense {
+  color: #C0C0C0;
+  font-family: "Trueno", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 300;
+}
+
+p.hl__ccText {
+  color: #C0C0C0;
+  font-family: "Trueno", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 300;
 }
