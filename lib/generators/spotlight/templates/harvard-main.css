@@ -787,6 +787,13 @@ span.hl__topHeaderTitle__collections {
   -ms-flex-flow: wrap;
   flex-flow: wrap;
 }
+.hl__ccText a {
+    border: 0;
+    color: #fff;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
 img.hl__ccImage {
     float: left;
     margin-right: 10px;
@@ -3972,10 +3979,16 @@ p.hl__ccLicense {
   font-family: "Trueno", Helvetica, Roboto, Arial, sans-serif;
   font-weight: 300;
 }
+@media (min-width: 1150px) {
+	p.hl__ccLicense {
+		max-width: 70%;
+	}
+}
 
 p.hl__ccText {
   color: #C0C0C0;
   font-family: "Trueno", Helvetica, Roboto, Arial, sans-serif;
   font-size: 11px;
   font-weight: 300;
+  margin-top: 10px;
 }
