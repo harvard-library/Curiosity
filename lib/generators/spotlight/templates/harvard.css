@@ -287,14 +287,13 @@
   width: 230px;
   padding-left: 35px;
   align-items: center;
-  height: 35%;
 }
 
 @media (max-width: 620px) {
   .hl__footerCopyrightContainer {
     display: flex;
     width: 100%;
-    padding: 45px 0 0;
+    padding: 0;
     height: auto;
   }
 }
