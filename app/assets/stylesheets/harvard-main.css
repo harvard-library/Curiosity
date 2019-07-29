@@ -738,7 +738,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 0;
+    padding: 20px 0 0;
     height: auto;
   }
 }
@@ -761,6 +761,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
+    height: auto;
     border-right: none;
   }
 }
