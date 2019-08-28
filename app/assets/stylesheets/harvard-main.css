@@ -732,13 +732,14 @@
   padding-left: 35px;
   -ms-flex-align: center;
   align-items: center;
-  height: 35%}
+}
 @media (max-width:620px) {
   .hl__footerCopyrightContainer {
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 45px 0 0;
+    padding: 20px 0 0;
+    height: auto;
   }
 }
 .footerBuiltBy {
@@ -760,6 +761,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
+    height: auto;
     border-right: none;
   }
 }
@@ -772,32 +774,43 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-.hl__ccContainer {
-  min-height: 150px;
+.hl__footerLicense {
   padding-top: 30px;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
   -ms-flex-align: center;
   align-items: center;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: wrap;
-  flex-flow: wrap;
+  padding-bottom: 10px;
 }
-.hl__ccContainer svg {
-  margin-right: 10px;
+
+
+.hl__footerLicenseImage {
+	-webkit-box-flex: 0;
+	-ms-flex: none;
+	flex: none;
 }
-.hl__ccContainer p {
-  font-family: TruenoLight;
+
+
+.hl__footerLicense p {
+  font-family: TruenoLt;
   font-size: 15px;
   color: silver;
   margin: 0;
   -ms-flex: 1 1 90%;
-  flex: 1 1 90%}
-.hl__ccContainer .hl__ccText {
+  flex: 1 1 90%
+}
+ 
+.hl__footerLicenseMessage {
+	-webkit-box-align: center;
+	align-items: center;
+	display: -webkit-box;
+	display: flex;
+}  
+.hl__footerLicenseMessage .hl__ccText {
   font-size: 11px;
 }
-.hl__ccContainer .hl__ccLearnLink {
+.hl__footerLicense .hl__ccLearnLink {
   color: silver;
   text-decoration: underline;
   -webkit-text-decoration-color: #0579b8;

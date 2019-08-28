@@ -1,3 +1,6 @@
+2.7.0-lts-2 VC
+--DCP-520: CURIOSity - Make footer more responsive
+
 2.7.0-lts-1 VC
 --DCP-484: CURIOSity: Upgrade Spotlight to 2.7.0
 --DCP-376: CURIOSity: DESIGN - Masthead no longer reflects crop and distorts the image
