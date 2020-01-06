@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # General spotlight application helpers
@@ -15,7 +17,10 @@ module Spotlight
       name ||= super
 
       if current_exhibit
-        t :'spotlight.application_name', exhibit: current_exhibit.title, application_name: name
+        t :'spotlight.application_name',
+          exhibit: current_exhibit.title,
+          application_name: name,
+          default: t('spotlight.application_name', locale: I18n.default_locale, exhibit: current_exhibit.title, application_name: name)
       else
         name
       end
@@ -77,9 +82,10 @@ module Spotlight
     ##
     # Override Blacklight's #render_document_class to inject a private class
     def render_document_class(document = @document)
-      types = super || ''
-      types << " #{document_class_prefix}private" if document.private?(current_exhibit)
-      types
+      [
+        super,
+        ("#{document_class_prefix}private" if document.private?(current_exhibit))
+      ].join(' ')
     end
 
     # Return a copy of the blacklight configuration

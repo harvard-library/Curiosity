@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
-  VERSION = '2.2.1'.freeze
+  VERSION = '2.13.0'
 end

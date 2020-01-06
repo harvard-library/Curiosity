@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # PageConfigurations is a simple class to gather and return all
@@ -73,6 +75,7 @@ module Spotlight
 
     def page_preview_url
       return unless page.persisted?
+
       spotlight.exhibit_preview_block_path(current_exhibit, page)
     end
 

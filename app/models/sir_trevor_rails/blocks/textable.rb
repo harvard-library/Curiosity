@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SirTrevorRails
   module Blocks
     ##
@@ -13,6 +15,7 @@ module SirTrevorRails
 
       def content_align
         return unless text?
+
         text_align == 'left' ? 'right' : 'left'
       end
 

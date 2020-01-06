@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Spotlight::Resources::CsvUploadController, type: :controller do
   routes { Spotlight::Engine.routes }
   let(:exhibit) { FactoryBot.create(:exhibit) }
@@ -58,7 +60,7 @@ describe Spotlight::Resources::CsvUploadController, type: :controller do
       it 'redirects back' do
         expect(Spotlight::AddUploadsFromCSV).to receive(:perform_later).and_return(nil)
         post :create, params: { exhibit_id: exhibit, resources_csv_upload: { url: csv } }
-        expect(response).to redirect_to 'http://test.host/'
+        expect(response).to redirect_to "http://test.host/spotlight/#{exhibit.slug}/catalog/admin"
       end
     end
   end

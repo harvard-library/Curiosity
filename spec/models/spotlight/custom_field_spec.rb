@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Spotlight::CustomField, type: :model do
   describe '#label' do
     subject { described_class.new configuration: { 'label' => 'the configured label' }, field: 'foo_tesim' }
@@ -65,13 +67,13 @@ describe Spotlight::CustomField, type: :model do
     it 'ends in the text suffix if it is a text field' do
       subject.field_type = 'text'
       subject.save
-      expect(subject.field).to end_with Spotlight::Engine.config.solr_fields.text_suffix
+      expect(subject.field).to end_with '_tesim'
     end
 
     it 'ends in a string suffix if it is a vocab field' do
       subject.field_type = 'vocab'
       subject.save
-      expect(subject.field).to end_with Spotlight::Engine.config.solr_fields.string_suffix
+      expect(subject.field).to end_with '_ssim'
     end
 
     it 'begins with readonly if it is readonly' do
@@ -180,7 +182,12 @@ describe Spotlight::CustomField, type: :model do
     end
 
     it 'queues a job to reindex any documents with data in the old field' do
-      expect(Spotlight::RenameSidecarFieldJob).to receive(:perform_later).with(exhibit, subject.field, subject.field.sub('tesim', 'ssim'))
+      expect(Spotlight::RenameSidecarFieldJob).to receive(:perform_later).with(
+        exhibit,
+        subject.field, subject.field.sub('tesim', 'ssim'),
+        subject.slug, subject.slug
+      )
+
       subject.field_type = 'vocab'
       subject.save
     end

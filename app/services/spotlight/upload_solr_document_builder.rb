@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   # Creates solr documents for the uploaded documents in a resource
   class UploadSolrDocumentBuilder < SolrDocumentBuilder
@@ -6,10 +8,13 @@ module Spotlight
     def to_solr
       super.tap do |solr_hash|
         add_default_solr_fields solr_hash
-        add_image_dimensions solr_hash
-        add_file_versions solr_hash
         add_sidecar_fields solr_hash
-        add_manifest_path solr_hash
+
+        if attached_file?
+          add_image_dimensions solr_hash
+          add_file_versions solr_hash
+          add_manifest_path solr_hash
+        end
       end
     end
 
@@ -43,6 +48,10 @@ module Spotlight
 
     def riiif
       Riiif::Engine.routes.url_helpers
+    end
+
+    def attached_file?
+      resource.upload&.file_present?
     end
   end
 end

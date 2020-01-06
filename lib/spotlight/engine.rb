@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Load blacklight which will give spotlight views a higher preference than those in blacklight
 
 # devise must be required to first to ensure we can override devise and invitable views in spotlight correctly
@@ -14,6 +16,7 @@ require 'clipboard/rails'
 require 'leaflet-rails'
 require 'i18n/active_record'
 require 'spotlight/upload_field_config'
+require 'riiif'
 
 module Spotlight
   ##
@@ -113,12 +116,18 @@ module Spotlight
     # The allowed file extensions for uploading non-repository items.
     config.allowed_upload_extensions = %w(jpg jpeg png)
 
-    # Suffixes for exhibit-specific solr fields
+    # Suffixes for spotlight-created solr fields
     config.solr_fields = OpenStruct.new
-    config.solr_fields.prefix = ''.freeze
-    config.solr_fields.boolean_suffix = '_bsi'.freeze
-    config.solr_fields.string_suffix = '_ssim'.freeze
-    config.solr_fields.text_suffix = '_tesim'.freeze
+    config.solr_fields.prefix = ''
+    config.solr_fields.boolean_suffix = '_bsi'
+    config.solr_fields.string_suffix = '_ssim'
+    config.solr_fields.text_suffix = '_tesim'
+
+    # Suffixes for exhibit-specific solr fields
+    config.custom_field_types = {
+      vocab: { suffix: '_ssim', facetable: true },
+      text: { suffix: '_tesim' }
+    }
 
     config.resource_global_id_field = :"#{config.solr_fields.prefix}spotlight_resource_id#{config.solr_fields.string_suffix}"
 
@@ -188,6 +197,7 @@ module Spotlight
     config.ga_email = nil
     config.ga_analytics_options = {}
     config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
+    config.ga_anonymize_ip = false # false for backwards compatibility
 
     Blacklight::Engine.config.inject_blacklight_helpers = false
 
@@ -234,6 +244,7 @@ module Spotlight
 
     config.exhibit_themes = ['default']
 
+    config.default_page_content_type = 'SirTrevor'
     config.sir_trevor_widgets = %w(
       Heading Text List Quote Iframe Video Oembed Rule UploadedItems Browse LinkToSearch
       FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed

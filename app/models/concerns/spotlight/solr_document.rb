@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # SolrDocument mixins to add ActiveModel shims and indexing methods
@@ -68,6 +70,7 @@ module Spotlight
 
     def update_exhibit_resource(resource_attributes)
       return unless resource_attributes && resource_attributes['url']
+
       uploaded_resource.upload.update image: resource_attributes['url']
     end
 

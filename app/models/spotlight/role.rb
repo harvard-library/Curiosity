@@ -1,10 +1,17 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Exhibit authorization roles
   class Role < ActiveRecord::Base
     ROLES = %w(admin curator).freeze
     belongs_to :resource, polymorphic: true, optional: true
-    belongs_to :user, class_name: Spotlight::Engine.config.user_class, autosave: true, required: true
+
+    # Ignoring for https://github.com/rubocop-hq/rubocop/issues/6764
+    # rubocop:disable Rails/ReflectionClassName
+    belongs_to :user, class_name: Spotlight::Engine.config.user_class, autosave: true, optional: false
+    # rubocop:enable Rails/ReflectionClassName
+
     validates :role, inclusion: { in: ROLES }
     validate :user_must_be_unique, if: :user
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Spotlight's catalog controller. Note that this subclasses
@@ -195,7 +197,7 @@ module Spotlight
     end
 
     def custom_field_params
-      current_exhibit.custom_fields.writeable.pluck(:field)
+      current_exhibit.custom_fields.as_strong_params
     end
 
     def check_authorization

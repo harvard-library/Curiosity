@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'Adding custom metadata field data', type: :feature do
   let(:exhibit) { FactoryBot.create(:exhibit) }
   let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
@@ -20,7 +22,7 @@ describe 'Adding custom metadata field data', type: :feature do
 
     click_on 'Save changes'
 
-    expect(::SolrDocument.new(id: 'dq287tq6352').sidecar(exhibit).data).to include 'field_name_tesim' => 'My new custom field value'
+    expect(::SolrDocument.new(id: 'dq287tq6352').sidecar(exhibit).data).to include 'some-field' => 'My new custom field value'
     sleep(1) # The data isn't commited to solr immediately.
 
     visit spotlight.exhibit_solr_document_path(exhibit, 'dq287tq6352')
@@ -38,6 +40,24 @@ describe 'Adding custom metadata field data', type: :feature do
       click_on 'Edit'
 
       expect(page).to have_selector 'textarea[readonly]'
+    end
+  end
+
+  context 'with a multivalued field', js: true do
+    let(:custom_field) { FactoryBot.create(:custom_field, exhibit: exhibit, is_multiple: true) }
+    it 'can add multiple values' do
+      visit spotlight.exhibit_solr_document_path(exhibit, 'dq287tq6352')
+
+      expect(page).to have_link 'Edit'
+
+      click_on 'Edit'
+      fill_in 'Some Field', with: 'value 1'
+      click_on 'Add another'
+      fill_in 'solr_document_sidecar_data_some-field_2', with: 'value 2'
+
+      click_on 'Save changes'
+
+      expect(::SolrDocument.new(id: 'dq287tq6352').sidecar(exhibit).data).to include 'some-field' => ['value 1', 'value 2']
     end
   end
 

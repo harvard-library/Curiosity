@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 describe 'Uploading a non-repository item', type: :feature do
   include ActiveJob::TestHelper
 
   let!(:exhibit) { FactoryBot.create(:exhibit) }
-  let!(:custom_field) { FactoryBot.create(:custom_field, exhibit: exhibit) }
+  let!(:custom_field) { FactoryBot.create(:custom_field, exhibit: exhibit, field_type: :vocab) }
   let(:exhibit_curator) { FactoryBot.create(:exhibit_curator, exhibit: exhibit) }
   let(:user) { exhibit_curator }
   before { login_as user }
@@ -22,7 +24,7 @@ describe 'Uploading a non-repository item', type: :feature do
         expect(page).to have_css('textarea#resources_upload_data_spotlight_upload_description_tesim')
         expect(page).to have_css('#resources_upload_data_spotlight_upload_attribution_tesim[type="text"]')
         expect(page).to have_css('#resources_upload_data_spotlight_upload_date_tesim[type="text"]')
-        expect(page).to have_css("#resources_upload_data_#{custom_field.field}[type='text']")
+        expect(page).to have_css("#f0_resources_upload_data_#{custom_field.slug}[type='text']")
       end
     end
 
@@ -40,6 +42,23 @@ describe 'Uploading a non-repository item', type: :feature do
       expect(page).to have_content 'Object uploaded successfully.'
 
       expect(Spotlight::Resource.last.upload.image.file.path).to end_with '800x600.png'
+      Blacklight.default_index.connection.delete_by_id Spotlight::Resource.last.send(:compound_id)
+      Blacklight.default_index.connection.commit
+    end
+
+    it 'creates a new item event without an attached file' do
+      visit spotlight.new_exhibit_resource_path(exhibit)
+
+      click_link 'Upload item'
+
+      fill_in 'Title', with: 'no-image'
+
+      within '#new_resources_upload' do
+        click_button 'Add item'
+      end
+      expect(page).to have_content 'Object uploaded successfully.'
+      expect(Spotlight::Resource.last.data['full_title_tesim']).to eq 'no-image'
+
       Blacklight.default_index.connection.delete_by_id Spotlight::Resource.last.send(:compound_id)
       Blacklight.default_index.connection.commit
     end

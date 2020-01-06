@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mail'
 module Spotlight
   ##
@@ -34,7 +36,18 @@ module Spotlight
     has_many :attachments, dependent: :destroy
     has_many :contact_emails, dependent: :delete_all # These are the contacts who get "Contact us" emails
     has_many :contacts, dependent: :delete_all # These are the contacts who appear in the sidebar
-    has_many :custom_fields, dependent: :delete_all
+    has_many :custom_fields, dependent: :delete_all do
+      def as_strong_params
+        multivalued_params, single_valued_params = writeable.partition(&:is_multiple?)
+        single_valued_params.pluck(:slug, :field).flatten +
+          [multivalued_params.each_with_object({}) do |f, h|
+            h[f.slug] = []
+            h[f.field] = []
+          end]
+      end
+    end
+    has_many :custom_search_fields, dependent: :delete_all
+
     has_many :feature_pages, -> { for_default_locale }, extend: FriendlyId::FinderMethods
     has_many :main_navigations, dependent: :delete_all
     has_many :reindexing_log_entries, dependent: :destroy
@@ -42,7 +55,12 @@ module Spotlight
     has_many :roles, as: :resource, dependent: :delete_all
     has_many :searches, dependent: :destroy, extend: FriendlyId::FinderMethods
     has_many :solr_document_sidecars, dependent: :delete_all
+
+    # Ignoring for https://github.com/rubocop-hq/rubocop/issues/6764
+    # rubocop:disable Rails/ReflectionClassName
     has_many :users, through: :roles, class_name: Spotlight::Engine.config.user_class
+    # rubocop:enable Rails/ReflectionClassName
+
     has_many :pages, dependent: :destroy
     has_many :filters, dependent: :delete_all
     has_many :translations, class_name: 'I18n::Backend::ActiveRecord::Translation', dependent: :destroy, inverse_of: :exhibit

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Base CRUD controller for pages
@@ -29,7 +31,7 @@ module Spotlight
 
     # GET /pages/1
     def show
-      fresh_when([@page.exhibit, @page])
+      fresh_when([@page.exhibit, @page, request.query_parameters.to_query])
     end
 
     def preview
@@ -111,6 +113,7 @@ module Spotlight
 
     def undo_link
       return unless can? :manage, @page
+
       view_context.link_to(t(:'spotlight.versions.undo'), revert_version_path(@page.versions.last), method: :post)
     end
 

@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Process a CSV upload into new Spotlight::Resource::Upload objects
@@ -19,7 +21,7 @@ module Spotlight
           data: row,
           exhibit: exhibit
         )
-        resource.build_upload(remote_image_url: url)
+        resource.build_upload(remote_image_url: url) unless url == '~'
         resource.save_and_index
       end
     end

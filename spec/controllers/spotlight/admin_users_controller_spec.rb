@@ -1,4 +1,6 @@
-describe Spotlight::AdminUsersController, type: :controller do
+# frozen_string_literal: true
+
+RSpec.describe Spotlight::AdminUsersController, type: :controller do
   routes { Spotlight::Engine.routes }
 
   before { sign_in(user) }
@@ -19,7 +21,7 @@ describe Spotlight::AdminUsersController, type: :controller do
     describe 'GET index' do
       it 'is successful' do
         get :index
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
 
@@ -31,6 +33,16 @@ describe Spotlight::AdminUsersController, type: :controller do
         expect(response).to redirect_to(admin_users_path)
         expect(flash[:notice]).to eq 'User removed from site adminstrator role'
         expect(Spotlight::Site.instance.roles.where(user_id: user.id)).to be_none
+      end
+    end
+
+    describe 'PATCH update' do
+      let(:non_admin) { FactoryBot.create(:exhibit_visitor) }
+      it 'adds the site admin role to the given user' do
+        patch :update, params: { id: non_admin.id }
+        expect(response).to redirect_to(admin_users_path)
+        expect(flash[:notice]).to eq 'Added user as an adminstrator'
+        expect(non_admin.roles.map(&:role)).to eq ['admin']
       end
     end
   end

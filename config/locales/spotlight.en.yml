@@ -4,6 +4,10 @@ en:
     attributes:
       spotlight/contact:
         avatar: Photo
+      spotlight/custom_field:
+        is_multiple: Is the field data multi-valued? (cannot be changed)
+      spotlight/custom_search_field:
+        field: Solr specification
       spotlight/exhibit:
         published: Published?
       spotlight/language:
@@ -23,6 +27,7 @@ en:
   drag: Drag
   helpers:
     action:
+      add_another: Add another
       cancel: Cancel
       destroy: Delete
       destroy_are_you_sure: Are you sure you want to delete this %{model}?
@@ -35,6 +40,8 @@ en:
       spotlight/contact:
         create: Add contact
       spotlight/custom_field:
+        create: Add new field
+      spotlight/custom_search_field:
         create: Add new field
       spotlight/role:
         create: Add a new user
@@ -63,6 +70,13 @@ en:
         create: Send
         created: Thanks. Your feedback has been sent.
       custom_field:
+        batch_error: There was an error updating the requested %{model}.
+        batch_updated: "%{model} were successfully updated."
+        create: Save
+        created: The %{model} was created.
+        destroyed: The %{model} was deleted.
+        updated: The %{model} was successfully updated.
+      custom_search_field:
         batch_error: There was an error updating the requested %{model}.
         batch_updated: "%{model} were successfully updated."
         create: Save
@@ -158,20 +172,22 @@ en:
     admin_users:
       create:
         error: There was a problem adding the user as an exhibits adminstrator
-        success: Added user as an exhibits adminstrator
+        success: Added user as an adminstrator
       destroy:
         error: There was a problem removing the user from the site adminstrator role
         success: User removed from site adminstrator role
       index:
-        add: Add new administrator
-        all_users: Administrators and curators of all exhibits
+        admins_curators: Administrators and curators of all exhibits
+        all_users: All registered users
         copy: Copy
-        destroy: Remove from role
+        create: Add new administrator
+        destroy: Remove from admin role
         instructions: Existing exhibits administrators
-        page_title: Manage administrators
+        page_title: Manage users
         pending: pending
         save: Add role
         section: Manage exhibits
+        update: Make user an administrator
     appearances:
       edit:
         header: Appearance
@@ -272,6 +288,7 @@ en:
           placeholder: First and last name
         source:
           remote:
+            help: ''
             label: Upload an image
         telephone:
           placeholder: Telephone number (optional)
@@ -301,6 +318,16 @@ en:
           label: Type
           text: Free text
           vocab: Controlled vocabulary
+        is_multiple:
+          label: Multi-valued?
+      new:
+        header: Add Exhibit-Specific Field
+    custom_search_fields:
+      edit:
+        header: Edit Exhibit-Specific Field
+      form:
+        field:
+          help: Specify fields to be searched and their boost values (e.g., full_title_tesim^100 personal_name_tesim^50).
       new:
         header: Add Exhibit-Specific Field
     dashboards:
@@ -480,6 +507,7 @@ en:
           header: Image source
           remote:
             header: Cropped image
+            help: ''
             label: Upload an image
       upload_form:
         crop_area:
@@ -492,6 +520,7 @@ en:
           header: Image source
           remote:
             header: Cropped image
+            help: ''
             label: Upload an image
     header_links:
       contact: Feedback
@@ -683,6 +712,9 @@ en:
           label: 'Sort by:'
       search_fields:
         enable_feature: Display search box
+        exhibit_specific:
+          header: Exhibit-specific search fields
+          instructions: You can add custom search fields to supplement the search fields that are part of the default configuration.
         header: Field-based search
         help: If the search box is displayed, you can also enable field-based search. Field-based search adds a dropdown menu to your exhibit site's search box that provides the user with an option to restrict a search query to a single metadata field.
         instructions: If enabled, you can select below the metadata fields that are available for searching. Click a field name to edit its display label.  Drag and drop fields to specify the order they are displayed in the search box dropdown menu.

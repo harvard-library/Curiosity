@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'roar/decorator'
 require 'roar/json'
 require 'base64'
@@ -31,6 +33,10 @@ module Spotlight
     (Spotlight::Exhibit.attribute_names - %w(id slug masthead_id thumbnail_id)).each do |prop|
       property prop
     end
+
+    property :theme, setter: lambda { |fragment:, represented:, **|
+      represented.theme = fragment if Spotlight::Engine.config.exhibit_themes.include? fragment
+    }
 
     collection :searches, populator: ->(fragment, options) { options[:represented].searches.find_or_initialize_by(slug: fragment['slug']) },
                           class: Spotlight::Search do
@@ -81,7 +87,7 @@ module Spotlight
     end
 
     collection :contact_emails, class: Spotlight::ContactEmail do
-      (Spotlight::ContactEmail.attribute_names - %w(id exhibit_id)).each do |prop|
+      (Spotlight::ContactEmail.attribute_names - %w(id exhibit_id confirmation_token)).each do |prop|
         property prop
       end
     end
@@ -150,6 +156,7 @@ module Spotlight
 
       def upload=(json)
         return unless represented.is_a? Spotlight::Resources::Upload
+
         FeaturedImageRepresenter.new(represented.build_upload).from_json(json)
       end
     end

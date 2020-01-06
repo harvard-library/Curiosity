@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Simplified catalog controller
 class CatalogController < ApplicationController
@@ -22,6 +24,10 @@ class CatalogController < ApplicationController
     config.add_sort_field 'relevance', sort: 'score desc', label: I18n.t('spotlight.search.fields.sort.relevance')
 
     config.add_field_configuration_to_solr_request!
+
+    # enable facets:
+    # https://github.com/projectblacklight/spotlight/issues/1812#issuecomment-327345318
+    config.add_facet_fields_to_solr_request!
 
     # Set which views by default only have the title displayed, e.g.,
     # config.view.gallery.title_only_by_default = true

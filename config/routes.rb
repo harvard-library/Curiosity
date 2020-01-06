@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spotlight::Engine.routes.draw do
   devise_for :contact_email, class_name: 'Spotlight::ContactEmail', only: [:confirmations]
 
@@ -14,7 +16,7 @@ Spotlight::Engine.routes.draw do
 
   get '/exhibits/edit', to: 'sites#edit_exhibits', as: 'edit_site_exhibits'
 
-  resources :admin_users, only: [:index, :create, :destroy]
+  resources :admin_users, only: [:index, :create, :update, :destroy]
 
   resources :exhibits, path: '/', except: [:show] do
     member do
@@ -51,7 +53,11 @@ Spotlight::Engine.routes.draw do
 
     concern :exportable, Blacklight::Routes::Exportable.new
 
-    resources :solr_documents, except: [:index], path: '/catalog', controller: 'catalog' do
+    resources :solr_documents,
+              except: [:index],
+              path: '/catalog',
+              controller: 'catalog',
+              id: Blacklight::Engine.config.routes.identifier_constraint do
       concerns :exportable
 
       member do
@@ -62,6 +68,7 @@ Spotlight::Engine.routes.draw do
     end
 
     resources :custom_fields
+    resources :custom_search_fields
 
     resource :dashboard, only: [:show] do
       get :analytics

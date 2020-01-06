@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # CRUD actions for exhibit custom field management.
@@ -54,7 +56,7 @@ module Spotlight
     end
 
     def custom_field_params
-      params.require(:custom_field).permit(:label, :short_description, :field_type)
+      params.require(:custom_field).permit(:label, :short_description, :field_type, :is_multiple)
     end
   end
 end

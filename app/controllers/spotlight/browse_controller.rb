@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   ##
   # Index and read actions for browse (see {Spotlight::SearchesController}
@@ -80,12 +82,16 @@ module Spotlight
       @search && @search.masthead && @search.masthead.display?
     end
 
+    # This is overidden for the browse controller context from where it is defined in a helper
+    # (which just checks if the current exhibit is searchable) in order to also prevent showing the search bar
+    # if the current browse category is configured to display its masthead
     def should_render_spotlight_search_bar?
-      !resource_masthead?
+      current_exhibit&.searchable? && !resource_masthead?
     end
 
     def document_index_view_type
       return super if params[:view].present?
+
       if @search && @search.default_index_view_type.present?
         blacklight_config.view[@search.default_index_view_type].key
       else

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Spotlight::BlacklightConfiguration, type: :model do
   subject { described_class.new }
   let(:blacklight_config) { Blacklight::Configuration.new }
@@ -16,7 +18,7 @@ describe Spotlight::BlacklightConfiguration, type: :model do
   end
 
   it 'is expected to be versioned' do
-    is_expected.to be_versioned
+    expect(subject).to be_versioned
   end
 
   it 'touches the exhibit' do
@@ -94,10 +96,8 @@ describe Spotlight::BlacklightConfiguration, type: :model do
 
       it 'defaults to not showing a custom field in the facets' do
         field = double('field', new_record?: false, field: 'a', solr_field: 'a', configuration: {})
-        custom_fields = double('custom_fields', vocab: [field], reject: [])
-        allow(custom_fields).to receive(:map) do |&block|
-          block.call(field)
-        end
+        custom_fields = double('custom_fields', facetable: [field], reject: [])
+        allow(custom_fields).to receive(:map).and_yield(field)
         allow(subject.exhibit).to receive(:custom_fields).and_return(custom_fields)
         subject.facet_fields = { 'a' => { enabled: '1', label: 'Label' } }
         expect(subject.blacklight_config.facet_fields).to include('a')
@@ -418,6 +418,13 @@ describe Spotlight::BlacklightConfiguration, type: :model do
       blacklight_config.add_search_field 'a', enabled: false
       expect(subject.blacklight_config.search_fields['a'].enabled).to eq false
     end
+
+    context 'custom fields' do
+      it 'includes any custom fields' do
+        allow(subject).to receive_messages(custom_search_fields: { 'a' => Blacklight::Configuration::SearchField.new(field: 'a') })
+        expect(subject.blacklight_config.search_fields).to include('a')
+      end
+    end
   end
 
   describe 'per page' do
@@ -523,7 +530,7 @@ describe Spotlight::BlacklightConfiguration, type: :model do
 
   describe '#custom_facet_fields' do
     it 'converts exhibit-specific fields to Blacklight configurations' do
-      allow(subject.exhibit).to receive_message_chain(:custom_fields, vocab: [
+      allow(subject.exhibit).to receive_message_chain(:custom_fields, facetable: [
                                                         stub_model(Spotlight::CustomField, field: 'abc', configuration: { a: 1 }, exhibit: subject.exhibit),
                                                         stub_model(Spotlight::CustomField, field: 'xyz', configuration: { x: 2 }, exhibit: subject.exhibit)
                                                       ])
@@ -546,6 +553,20 @@ describe Spotlight::BlacklightConfiguration, type: :model do
       expect(custom_index_fields['abc']).to be_a_kind_of Blacklight::Configuration::Field
       expect(custom_index_fields['abc'].a).to eq 1
       expect(custom_index_fields['abc'].custom_field).to eq true
+    end
+  end
+
+  describe '#custom_search_fields' do
+    it 'converts exhibit-specific fields to Blacklight configurations' do
+      allow(subject.exhibit).to receive_messages(custom_search_fields: [
+                                                   stub_model(Spotlight::CustomSearchField, field: 'abc', slug: 'a', exhibit: subject.exhibit),
+                                                   stub_model(Spotlight::CustomSearchField, field: 'xyz', slug: 'b', exhibit: subject.exhibit)
+                                                 ])
+      custom_search_fields = subject.custom_search_fields(blacklight_config)
+      expect(custom_search_fields).to include 'a', 'b'
+      expect(custom_search_fields['a']).to be_a_kind_of Blacklight::Configuration::Field
+      expect(custom_search_fields['a'].solr_parameters).to eq(qf: 'abc')
+      expect(custom_search_fields['a'].custom_field).to eq true
     end
   end
 

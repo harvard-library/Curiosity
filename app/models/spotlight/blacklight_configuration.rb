@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'blacklight/utils'
 
 module Spotlight
@@ -134,6 +136,7 @@ module Spotlight
 
         config.show_fields = config.index_fields
 
+        config.search_fields.merge! custom_search_fields(config)
         unless search_fields.blank?
           config.search_fields = Hash[config.search_fields.sort_by { |k, _v| field_weight(search_fields, k) }]
 
@@ -214,7 +217,7 @@ module Spotlight
     end
 
     def custom_facet_fields
-      Hash[exhibit.custom_fields.vocab.reject(&:new_record?).map do |x|
+      Hash[exhibit.custom_fields.facetable.reject(&:new_record?).map do |x|
         field = Blacklight::Configuration::FacetField.new x.configuration.merge(
           key: x.field, field: x.solr_field, show: false, custom_field: true
         )
@@ -222,6 +225,18 @@ module Spotlight
         field.enabled = false
         field.limit = true
         [x.field, field]
+      end]
+    end
+
+    def custom_search_fields(blacklight_config)
+      Hash[exhibit.custom_search_fields.reject(&:new_record?).map do |custom_field|
+        original_config = blacklight_config.search_fields[custom_field.field] || {}
+        field = Blacklight::Configuration::SearchField.new original_config.merge(
+          custom_field.configuration.merge(
+            key: custom_field.slug, solr_parameters: { qf: custom_field.field }, custom_field: true
+          )
+        )
+        [custom_field.slug, field]
       end]
     end
 
@@ -275,11 +290,13 @@ module Spotlight
     def add_exhibit_tags_fields(config)
       # rubocop:disable Style/GuardClause
       unless config.show_fields.include? :exhibit_tags
-        config.add_show_field :exhibit_tags, field: config.document_model.solr_field_for_tagger(exhibit), link_to_search: true
+        config.add_show_field :exhibit_tags, field: config.document_model.solr_field_for_tagger(exhibit),
+                                             link_to_search: true,
+                                             separator_options: { words_connector: nil, two_words_connector: nil, last_word_connector: nil }
       end
 
       unless config.facet_fields.include? :exhibit_tags
-        config.add_facet_field :exhibit_tags, field: config.document_model.solr_field_for_tagger(exhibit)
+        config.add_facet_field :exhibit_tags, field: config.document_model.solr_field_for_tagger(exhibit), limit: true
       end
       # rubocop:enable Style/GuardClause
     end
@@ -331,12 +348,14 @@ module Spotlight
     # Check to see whether config.view.foobar.title_only_by_default is available
     def title_only_by_default?(view)
       return false if [:show, :enabled].include?(view)
+
       title_only = default_blacklight_config.view.send(:[], view).try(:title_only_by_default)
       title_only.nil? ? false : title_only
     end
 
     def set_show_field_defaults(field)
       return unless index_fields.blank?
+
       views = default_blacklight_config.view.keys
       field.merge! Hash[views.map { |v| [v, false] }]
       field.enabled = true

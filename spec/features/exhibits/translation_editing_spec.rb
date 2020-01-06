@@ -3,6 +3,12 @@
 describe 'Translation editing', type: :feature do
   let(:exhibit) { FactoryBot.create(:exhibit, title: 'Sample', subtitle: 'SubSample') }
   let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
+
+  before(:all) do
+    # mimics setting config.i18n.fallbacks = [I18n.default_locale] in the rails environment
+    I18n.fallbacks[:fr] = [:fr, I18n.default_locale]
+  end
+
   before do
     FactoryBot.create(:language, exhibit: exhibit, locale: 'sq')
     FactoryBot.create(:language, exhibit: exhibit, locale: 'fr')
@@ -42,6 +48,15 @@ describe 'Translation editing', type: :feature do
     end
 
     describe 'main menu' do
+      before do
+        exhibit.searches.first.update(published: true)
+        within '.translation-edit-form #general' do
+          fill_in 'Home', with: 'Maison'
+          fill_in 'Browse', with: 'parcourir ceci!'
+          click_button 'Save changes'
+        end
+      end
+
       it 'adds translations to exhibit navbar' do
         within '.translation-edit-form #general' do
           expect(page).to have_css '.help-block', text: 'Home'
@@ -68,15 +83,6 @@ describe 'Translation editing', type: :feature do
         expect(exhibit.main_navigations.browse.label).to eq 'parcourir ceci!'
         expect(I18n.t(:'spotlight.curation.nav.home')).to eq 'Maison'
         I18n.locale = I18n.default_locale
-      end
-
-      before do
-        exhibit.searches.first.update(published: true)
-        within '.translation-edit-form #general' do
-          fill_in 'Home', with: 'Maison'
-          fill_in 'Browse', with: 'parcourir ceci!'
-          click_button 'Save changes'
-        end
       end
 
       it 'adds translations to user-facing breadcrumbs' do
@@ -363,9 +369,11 @@ describe 'Translation editing', type: :feature do
       expect(exhibit.searches.first.long_description).to eq 'All items in this exhibit.'
 
       I18n.locale = :fr
+      Translation.current_exhibit = exhibit
       expect(exhibit.searches.first.title).to eq "Tous les objets d'exposition"
       expect(exhibit.searches.first.long_description).to eq 'Tous les articles de cette exposition.'
       I18n.locale = I18n.default_locale
+      Translation.current_exhibit = nil
     end
   end
 

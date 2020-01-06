@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/generators'
 
 module Spotlight
@@ -24,7 +26,6 @@ module Spotlight
     end
 
     def riiif
-      gem 'riiif', '~> 1.0'
       route "mount Riiif::Engine => '/images', as: 'riiif'"
       copy_file 'config/initializers/riiif.rb'
     end
@@ -106,7 +107,7 @@ module Spotlight
     end
 
     def add_oembed
-      gem 'blacklight-oembed', '>= 0.1.0'
+      gem 'blacklight-oembed', '~> 0.3'
       generate 'blacklight_oembed:install'
     end
 
@@ -140,10 +141,6 @@ module Spotlight
 
     def add_translations
       copy_file 'config/initializers/translation.rb'
-    end
-
-    def generate_paper_trail_column_size_migration
-      generate 'spotlight:increase_paper_trail_column_size'
     end
   end
 end

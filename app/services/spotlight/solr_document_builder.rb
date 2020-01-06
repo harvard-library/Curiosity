@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotlight
   # Creates solr documents for the documents in a resource
   class SolrDocumentBuilder
@@ -13,6 +15,7 @@ module Spotlight
     def documents_to_index
       data = to_solr
       return [] if data.blank?
+
       data &&= [data] if data.is_a? Hash
 
       return to_enum(:documents_to_index) { data.size } unless block_given?
@@ -51,7 +54,8 @@ module Spotlight
     # @returns [#to_solr] something that responds to `to_solr'
     def exhibit_solr_doc(id)
       return NilSolrDocument unless document_model || id.present?
-      document_model.build_for_exhibit(id, exhibit, resource: resource)
+
+      document_model.build_for_exhibit(id, exhibit, resource: (resource if resource.persisted?))
     end
 
     def unique_key
