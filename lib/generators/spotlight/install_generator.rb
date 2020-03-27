@@ -110,6 +110,8 @@ module Spotlight
       copy_file 'truenoultlt-webfont.woff', 'app/assets/fonts/truenoultlt-webfont.woff'
       copy_file 'truenoultlt-webfont.woff2', 'app/assets/fonts/truenoultlt-webfont.woff2'
 
+      #copy favicon
+      copy_file 'favicon.ico', 'app/assets/images/favicon.ico'
       #copy logo
       copy_file 'hl_header-logo.svg', 'app/assets/images/hl_header-logo.svg'
       #copy cc file
