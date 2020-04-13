@@ -56,7 +56,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', '~> 6.20.0'
+gem 'blacklight', '~> 6.19.2'
 gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_development_responsive_footer'
 
 group :development, :test do
