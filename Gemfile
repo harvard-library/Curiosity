@@ -57,7 +57,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', '~> 6.19.2'
-gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'dsi-development'
+gem 'blacklight-spotlight', github: 'harvard-library/Curiosity', :branch => 'dsi-development'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
