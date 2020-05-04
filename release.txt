@@ -1,3 +1,8 @@
+2.7.0-dcp-1 PP
+-- Changed product title in header to CURIOSITY Collections
+-- Added Favicon
+-- Changed 'Contact Us' link text in footer to "Report a Problem"
+
 2.7.0-lts-2 VC
 --DCP-520: CURIOSity - Make footer more responsive
 
