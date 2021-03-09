@@ -1,28 +1,51 @@
-.ruby-*
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-.byebug_history
-.rvmrc
-.ruby-version
+# Ignore bundler config.
 /.bundle
-/vendor/bundle
+
+# Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-pickle-email-*.html
-.project
-config/initializers/secret_token.rb
-spec/internal
-_site/
-.internal_test_app
-pkg/
-/spec/examples.txt
-**/.DS_Store
-.internal_test_app/*
+!/log/.keep
+!/tmp/.keep
+tmp/
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+/node_modules
+/yarn-error.log
+
+/public/assets
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore environment file
+.env
+
+
+# Ignore local postgresql database directory
+postgresql/
+data/
+solr_data/
+
+
+# various editor/config files
+\#*
+.#*
+*.swp
+.DS_Store
+.bash_history
+
+# Ignore cache files
+*cache
+
+.idea
+/.idea
+
+/webapp.conf
+
+public/uploads/modsmapping/*.yml
+public/uploads/spotlight/attachment
+public/uploads/spotlight/featured_image

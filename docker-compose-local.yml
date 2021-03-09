@@ -1,0 +1,31 @@
+# Build all images and run all containers
+# `docker-compose -f docker-compose-local.yml up -d --build --force-recreate`
+
+version: '3.7'
+
+services:
+  curiosity_app:
+    container_name: curiosity
+    build:
+      context: .
+      dockerfile: DockerfileLocal
+    tty: true
+    volumes:
+      # App files to work locally
+      - './app:/home/app/webapp/app'
+      # Logs
+      - './log:/home/app/webapp/log'
+      - './webapp.conf:/etc/nginx/sites-enabled/webapp.conf'
+      - './public/uploads/modsmapping:/home/app/webapp/public/uploads/modsmapping'
+      - './public/uploads/spotlight:/home/app/webapp/public/uploads/spotlight'
+    env_file:
+      - './.env'
+    environment:
+      RAILS_ENV: $RAILS_ENV
+    ports:
+      - "3001:3001"
+
+# Names our volume
+volumes:
+  db-data:
+    driver: local

@@ -1,0 +1,22 @@
+server {
+    listen 3001 ssl;
+    listen [::]:3001 ssl;
+    server_name <server name goes here>;
+    root /home/app/webapp/public;
+
+
+    # The following deploys your Ruby app on Passenger.
+
+    passenger_enabled on;
+    passenger_user app;
+    passenger_app_env development;
+
+    # For Ruby 2.7
+    passenger_ruby /usr/bin/ruby2.7;
+
+    ssl_certificate     /etc/ssl/certs/server.crt;
+	ssl_certificate_key /etc/ssl/certs/server.key;
+
+	error_log /home/app/webapp/log/error.log warn;
+
+}

@@ -1,0 +1,51 @@
+# Configs
+*.env*
+*.pem
+
+# Logs
+*.log
+
+# IDEs and editors
+.project
+.classpath
+*.launch
+.settings/
+.travis.yml
+
+#Tests
+spec/
+
+
+#tmp
+#tmp/
+
+#Docs
+docs/
+doc/
+CONTRIBUTING.md
+README.md
+
+#Docker files
+docker-compose*.yml
+Dockerfile*
+
+#package
+package*.json
+
+
+#deploy
+deploy/
+
+db/
+
+#Gemfile.lock
+
+webapp.conf.template
+env-example.txt
+
+# System Files
+.DS_Store
+Thumbs.db
+
+public/uploads/modsmapping
+public/uploads/spotlight

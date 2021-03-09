@@ -1,0 +1,9 @@
+# Environment `development`, `test`, or `production`
+RAILS_ENV=development
+
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_DB=
+MYSQL_HOST=
+MYSQL_PORT=3306:3306
+SOLR_URL=
