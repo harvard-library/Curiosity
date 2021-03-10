@@ -1,0 +1,78 @@
+/*
+*= require bootstrap-tagsinput
+*/
+@import 'spotlight/variables_bootstrap';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'sir-trevor/main';
+@import 'leaflet';
+@import 'spotlight/spotlight';
+
+/* HEADER */
+#header-navbar{background-image:linear-gradient(247deg,#52757e,#335c67);border-bottom:#52757e; height:60px;}
+.navbar-right{display:none;}
+.navbar-header{padding-left:25px;}
+#header-navbar .navbar-brand{
+    color:black;
+    margin-right:0px;
+    width:100%;
+    background-size:28rem;
+    width:280px;
+    background-color:black;
+    position: absolute;
+    right: 0px;
+    height:60px;
+}
+#header-navbar:after{
+    content: "HARVARD" " DIGITAL COLLECTIONS";
+    font-size:24px;
+    font-weight:400;
+    font-family:TruenoBd;
+    padding-top:10px;
+    padding-left:10px;
+}
+.container .navbar-header{margin-left:-15px;}
+/* END HEADER */
+
+
+/* TERMS OF USE */
+#sidebar h4{color:#222;}
+h1.page-title{color:#222; padding:10px 0 30px 0;}
+p{font-family:Lora; font-size:18px; color:#222;}
+/* END TERMS OF USE */
+
+.exhibit-card {
+    height: auto;
+}
+
+.exhibit-card.hover .flipper, .exhibit-card:hover .flipper {
+    -ms-filter: none;
+    -webkit-filter: none;
+    filter: none;
+    -webkit-transform: none;
+    transform: none;
+}
+
+.card-face {
+    height: auto;
+    position: relative;
+    display: inline-block;
+}
+
+
+.card-front .card-title {
+    font-family: TruenoRg;
+    color: #1e1e1e;
+}
+
+.card-front .description {
+    font-size: 12px
+}
+
+.card-front .visit-exhibit {
+    bottom: 16px;
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Simplified catalog controller
 class CatalogController < ApplicationController
@@ -13,7 +15,7 @@ class CatalogController < ApplicationController
 
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
-    config.show.partials.insert(1, :viewer)
+    config.show.partials.insert(1, :openseadragon)
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
@@ -27,12 +29,17 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
 
-    config.add_facet_fields_to_solr_request!
-    
-    config.add_search_field 'all_fields', label: 'Everything'
+    config.add_search_field 'all_fields', label: I18n.t('spotlight.search.fields.search.all_fields')
 
-    config.add_sort_field 'relevance', sort: 'score desc, id asc', label: 'Relevance'
+    config.add_sort_field 'relevance', sort: 'score desc, id asc', label: I18n.t('spotlight.search.fields.sort.relevance')
 
     config.add_field_configuration_to_solr_request!
+
+    # enable facets:
+    # https://github.com/projectblacklight/spotlight/issues/1812#issuecomment-327345318
+    config.add_facet_fields_to_solr_request!
+
+    # Set which views by default only have the title displayed, e.g.,
+    # config.view.gallery.title_only_by_default = true
   end
 end

@@ -1,0 +1,21 @@
+.iframe-wrapper {
+  display: none;
+}
+
+.openseadragon-container.col-md-6 {
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+.document-thumbnail {
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+.thumbnail > a {
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
+}

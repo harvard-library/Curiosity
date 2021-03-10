@@ -287,14 +287,14 @@
   width: 230px;
   padding-left: 35px;
   align-items: center;
-  height: 35%;
 }
 
 @media (max-width: 620px) {
   .hl__footerCopyrightContainer {
     display: flex;
     width: 100%;
-    padding: 45px 0 0;
+    padding: 0;
+    height: auto;
   }
 }
 
@@ -316,6 +316,7 @@
     display: flex;
     width: 100%;
     border-right: none;
+    height: auto;
   }
 }
 
@@ -330,32 +331,37 @@
   background-repeat: no-repeat;
 }
 
-.hl__ccContainer {
-  min-height: 150px;
+.hl__footerLicense {
   padding-top: 30px;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
   -ms-flex-align: center;
   align-items: center;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: wrap;
-  flex-flow: wrap;
+  padding-bottom: 10px;
 }
-.hl__ccContainer svg {
-  margin-right: 10px;
+
+
+.hl__footerLicenseImage {
+	-webkit-box-flex: 0;
+	-ms-flex: none;
+	flex: none;
 }
-.hl__ccContainer p {
+
+
+.hl__footerLicense p {
   font-family: TruenoLt;
   font-size: 15px;
   color: silver;
   margin: 0;
   -ms-flex: 1 1 90%;
-  flex: 1 1 90%}
-.hl__ccContainer .hl__ccText {
+  flex: 1 1 90%
+}
+  
+.hl__footerLicenseMessage .hl__ccText {
   font-size: 11px;
 }
-.hl__ccContainer .hl__ccLearnLink {
+.hl__footerLicense .hl__ccLearnLink {
   color: silver;
   text-decoration: underline;
   -webkit-text-decoration-color: #0579b8;
@@ -365,6 +371,9 @@
 .exhibit-card {
   height: auto;
   background-color: #FFFFFF;
+  max-width: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 .exhibit-card.hover .flipper, .exhibit-card:hover .flipper {
@@ -385,6 +394,7 @@
   background-color: transparent;
   box-shadow: none;
   border: none;
+  padding: 10px;
 }
 .card-front .card-title {
   font-family: "TruenoBd", sans-serif;
@@ -436,17 +446,15 @@
 .blacklight-exhibits-index .site-title-container {
   background-color: #FFFFFF;
   padding-top: 54px;
+  display: inline;
 }
 
 .blacklight-exhibits-index .masthead {
   background-color: transparent;
   border-bottom: none;
-  height: 350px;
 }
 
 .site-title.h1 {
-  margin-left: 18%;
-  margin-right: 18%;
   text-align: center;
   white-space: initial;
 }
@@ -457,6 +465,7 @@
   font-size: 60px;
   letter-spacing: 3.05px;
   line-height: 74px;
+  padding-top: 25px;
 }
 .blacklight-exhibits-index .masthead small {
   color: #1e1e1e;
@@ -475,6 +484,8 @@
 
 .blacklight-exhibits-index .row {
   width:100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -523,7 +534,7 @@ body h3 {
 }
 
 #main-container .col-md-9 {
-    margin-left: 13%;
+  margin-left: 13%;
 }
 
 #main-container aside.col-md-3 {
@@ -538,4 +549,9 @@ body.spotlight-manager #main-container .col-md-9 {
 body.spotlight-manager #main-container aside.col-md-3 {
     visibility: unset;
     max-width: 25%;
+}
+
+.tab-content {
+  margin:auto;
+  width:100%;
 }

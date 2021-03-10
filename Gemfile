@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -9,9 +7,8 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 5.1.0'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3', '~> 1.3.13'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -40,7 +37,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
 end
 
@@ -56,26 +53,24 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', '~> 6.20.0'
-gem 'blacklight-spotlight', github: 'harvard-library/spotlight', :branch => 'harvard_master'
-
+gem 'blacklight', '~> 6.0'
+gem 'blacklight-spotlight', github: 'harvard-library/spotlight', branch: 'harvard_master'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
 gem 'rsolr', '>= 1.0'
+gem 'bootstrap-sass', '~> 3.0'
+gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'friendly_id'
 gem 'riiif', '~> 2.0'
+gem 'delayed_job_active_record'
+gem 'daemons'
 gem 'sitemap_generator'
 gem 'blacklight-gallery', '>= 0.3.0'
 gem 'blacklight-oembed', '>= 0.1.0'
 gem 'devise_invitable'
-gem 'delayed_job_active_record'
-gem 'daemons'
-gem 'spotlight-oaipmh-resources', github: 'harvard-library/spotlight-oaipmh-resources', :branch => 'job_entry'
-gem 'rspec'
-gem 'rubocop'
-gem 'engine_cart'
+gem 'spotlight-oaipmh-resources', github: 'harvard-library/spotlight-oaipmh-resources', branch: 'job_entry'
