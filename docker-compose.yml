@@ -1,0 +1,13 @@
+# Build image
+# `docker-compose -f docker-compose.yml build`
+# Push to registry
+# `docker-compose -f docker-compose.yml push`
+
+version: '3.7'
+
+services:
+  app:
+    image: registry.lts.harvard.edu/lts/curiosity:2.7.0-lts-3
+    build:
+      context: .
+      dockerfile: Dockerfile
