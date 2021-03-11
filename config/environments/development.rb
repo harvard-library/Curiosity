@@ -9,6 +9,10 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+ config.log_level = ENV["LOG_LEVEL"] || :info
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
