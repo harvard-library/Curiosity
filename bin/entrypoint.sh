@@ -10,4 +10,8 @@ mkdir -p /home/app/webapp/tmp/pids
 chown -R app:app /home/app/webapp/tmp/pids
 chmod 755 /home/app/webapp/tmp/pids
 
+mkdir -p /home/app/webapp/tmp/cache
+chown -R app:app /home/app/webapp/tmp/cache
+chmod g+s /home/app/webapp/tmp/cache
+
 exec "$@"
