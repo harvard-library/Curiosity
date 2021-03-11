@@ -58,7 +58,7 @@ USER root
 EXPOSE 3001
 
 # Use baseimage-docker's init process.
-#CMD ["/sbin/my_init"]
-CMD ["/sbin/my_init","--","setuser","app","bash"]
+CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init","--","setuser","app","bash"]
 
 
