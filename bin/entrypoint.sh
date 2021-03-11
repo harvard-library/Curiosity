@@ -6,4 +6,8 @@ set -e
 chown app:app /etc/nginx/sites-enabled/webapp.conf
 chown -R app:app /home/app/webapp/log
 
+mkdir -p /home/app/webapp/tmp/pids
+chown -R app:app /home/app/webapp/tmp/pids
+chmod 755 /home/app/webapp/tmp/pids
+
 exec "$@"
