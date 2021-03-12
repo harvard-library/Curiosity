@@ -47,5 +47,6 @@ solr_data/
 /webapp.conf
 
 public/uploads/modsmapping/*.yml
+public/uploads/solrmapping/*.yml
 public/uploads/spotlight/attachment
 public/uploads/spotlight/featured_image
