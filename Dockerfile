@@ -11,10 +11,10 @@ COPY --chown=app:app Gemfile /home/app/webapp/.
 COPY --chown=app:app Gemfile.lock /home/app/webapp/.
 COPY --chown=app:app Rakefile /home/app/webapp/.
 
-# Update permissions for the easadm user and group
+# Update permissions for the gbladm user and group
 COPY bin/change_id.sh /tmp/change_id.sh
 RUN chmod 755 /tmp/change_id.sh && \
-  /tmp/change_id.sh -u 55015 -g 199
+  /tmp/change_id.sh -u 55012 -g 199
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   build-essential \
