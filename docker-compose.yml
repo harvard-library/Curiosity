@@ -7,7 +7,7 @@ version: '3.7'
 
 services:
   app:
-    image: registry.lts.harvard.edu/lts/curiosity:2.7.0-lts-3
+    image: registry.lts.harvard.edu/lts/curiosity:2.7.0-lts-4
     build:
       context: .
       dockerfile: Dockerfile
