@@ -53,6 +53,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
+
 gem 'blacklight', '~> 6.0'
 gem 'blacklight-spotlight', github: 'harvard-library/spotlight', branch: 'harvard_master'
 group :development, :test do
