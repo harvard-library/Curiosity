@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   mysql-client \
   bash \
   tzdata \
+  shared-mime-info \
   openssl \
   wget \
   openjdk-11-jre-headless \

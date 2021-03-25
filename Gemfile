@@ -56,6 +56,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Needed for mimemagic upgrade
+gem 'shared-mime-info', '~> 0.1'
+
 gem 'blacklight', '~> 6.0'
 gem 'blacklight-spotlight', github: 'harvard-library/spotlight', branch: 'harvard_master'
 group :development, :test do
