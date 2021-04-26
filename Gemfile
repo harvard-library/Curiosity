@@ -57,7 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'blacklight', '~> 6.0'
-gem 'blacklight-spotlight', github: 'harvard-library/spotlight', branch: 'harvard_master'
+gem 'blacklight-spotlight', github: 'harvard-library/Curiosity', branch: 'harvard_master'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end

@@ -1,5 +1,14 @@
 GIT
-  remote: https://github.com/harvard-library/Curiosity.git
+  remote: https://github.com/harvard-library/spotlight-oaipmh-resources.git
+  revision: e4706097de5a26aedcce7bd40cf5a5e065ba02d7
+  branch: job_entry
+  specs:
+    spotlight-oaipmh-resources (0.3.4)
+      mods
+      oai
+
+GIT
+  remote: https://github.com/harvard-library/spotlight.git
   revision: 8367415a767f61f0dc9fb328767d4231d9cd3ffb
   branch: harvard_master
   specs:
@@ -39,15 +48,6 @@ GIT
       sprockets-es6
       tophat
       underscore-rails (~> 1.6)
-
-GIT
-  remote: https://github.com/harvard-library/spotlight-oaipmh-resources.git
-  revision: e4706097de5a26aedcce7bd40cf5a5e065ba02d7
-  branch: job_entry
-  specs:
-    spotlight-oaipmh-resources (0.3.4)
-      mods
-      oai
 
 GEM
   remote: https://rubygems.org/
@@ -270,7 +270,6 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mods (2.4.1)
       edtf
@@ -283,8 +282,7 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
@@ -462,7 +460,7 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   blacklight (~> 6.0)
@@ -502,4 +500,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.1.4
+   2.2.14
